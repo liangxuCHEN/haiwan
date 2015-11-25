@@ -1,0 +1,171 @@
+<!--nav begin-->
+
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/typeahead.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/hogan-2.0.0.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.cookie.js"></script>
+<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/base.js"></script>
+
+<script type="text/javascript">
+	var AllLocationJson = {};
+	var AllThemesInJson = {};
+</script>
+<div class="site-nav">
+	<div class="c-wrapper">
+		<div class="site-nav-l" style="display: none;">
+			<span id="un_login">
+       			<a href="#" target="_self" class="singin" u-behavior="header_signIn">请登录</a> |<a href="#" target="_self" class="singup" u-behavior="header_signUp">免费注册</a>
+      		</span>
+			<span id="au_login" style="display: none;">
+				<a href="#" class="user"><b></b>我的</a> |<a target="_self" href="#" id="uloginout">退出</a>
+			 </span>
+		</div>
+
+		<div class="site-nav-r">
+			<div class="topbar">
+				<ul>
+					<li class="header_tel_top">
+						<a class="tel-icon-down">
+							<b></b>
+							<span>国内 400-010-0917</span>
+							<i class="tri tri--dropdown"></i>
+							<i class="vertical-bar"></i>
+						</a>
+						<div class="tel-appear">
+							<div class="header-tel">
+								境外 +8610 64160917
+							</div>
+						</div>
+					</li>
+					<li class="wx-icon-block">
+						<a class="wx-icon-down">
+							<span>微信订阅</span>
+							<i class="tri tri--dropdown"></i>
+							<i class="vertical-bar"></i>
+						</a>
+						<div class="wx-appear">
+							<div class="wx-img">
+								<img src="{dede:global.cfg_templets_skin/}/style/wx_code.png">
+							</div>
+						</div>
+					</li>
+					<div class="clear"></div>
+				</ul>
+			</div>
+		</div>
+		<div class="clear"></div>
+		<div style="display:none"><a href="http://www.lingganhezi.com">灵感盒子</a></div>
+	</div>
+</div>
+<div class="header">
+	<div class="header_wrapper">
+
+		<div class="logo">
+			<a target="_self" href="{dede:global.cfg_basehost/}">
+				<img src="{dede:global.cfg_templets_skin/}/style/logo-new.png">
+			</a>
+			<img src="{dede:global.cfg_templets_skin/}/style/slogan8.png" alt="" style="margin-left: 5px;">
+		</div>
+		<div class="search-new">
+			<div id="header_search_box">
+				<form action="/plus/travel2/search.php">
+				<div class="s-lft">
+					<input type="hidden" name="channeltype" value="6">
+					<span class="twitter-typeahead" style="position: relative;">
+						<input name="q" id="header_search_city_input" type="text" placeholder="搜“欧洲”试试，发现地道的吃喝玩乐" value="" class="typeahead city tt-query" autocomplete="off" spellcheck="false" dir="auto" style="position: relative; background-color: transparent;"><span style="position: absolute; left: -9999px; visibility: hidden; white-space: nowrap; font-family: Arial; font-size: 12px; font-style: normal; font-variant: normal; font-weight: 400; word-spacing: 0px; letter-spacing: 0px; text-indent: 0px; text-rendering: auto; text-transform: none;"></span>
+					<span class="tt-dropdown-menu" style="display: none;"></span>
+					</span>
+				</div>
+				<div class="s-rgt">
+					<input id="header_search_button" type="submit" value="搜索" class="btn" u-behavior="header_searchButton">
+				</div>
+				<div class="clear"></div>
+				</form>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+
+	<div class="nav">
+		<div class="nav-bg"></div>
+		<div class="c-wrapper">
+			<div></div>
+			<div id="nav-destination" class="categorys floatL down" style="cursor: pointer;">
+				<div class="title">选择旅行目的地</div>
+				<div class="continents">
+					<ul class="sf-menu sf-vertical" id="dropdown_menu">
+						{dede:channelartlist typeid='1'}
+						<li>
+							<ul class="Asia" style="display: none;">
+								{dede:channel type="son"}
+								<li class="nav-menu-li">
+									<a href='/plus/travel2/search.php?typeid=[field:id /]' >[field:typename /]</a>
+								</li>
+								{/dede:channel}
+							</ul>
+
+							<div class="contientsli">
+								<div class="contientsname">
+									<span>  {dede:field.typename/}  </span>
+									<!--<span class="en"> Asia</span>-->
+								</div>
+								<div class="hotcities">
+									{dede:channel keywords="hot"}
+									<a href="/plus/travel2/search.php?typeid=[field:id /]">[field:typename/]</a>
+									{/dede:channel}
+								</div>
+							</div>
+						</li>
+						{/dede:channelartlist}
+					</ul>
+				</div>
+			</div>
+			<div></div>
+			<div class="navitems floatL">
+				<ul class="header_themlist">
+					<li rel=""><a class="title" href="{dede:global.cfg_basehost/}" target="_self">首页</a>
+					</li>
+					
+					<!--私人订制-->
+					<li class="navli">
+						<a class="title" href="/Customized" target="_self">私人订制</a>
+					</li>
+					
+					<!--玩乐-->
+					<li class="navli">
+						<a class="title" href="/wanle" target="_self">玩乐<b class="nav_icon_triangle"></b></a>
+						<div class="navitems_content one_list">
+							<dl class="nav_content_left">
+								<dd>
+									<a href="/wanle/tesehuodong">特色活动</a>
+								</dd>
+							</dl>
+						</div>
+					</li>
+					
+					<!--境外出团-->
+					<li class="navli">
+						<a class="title" href="/destination" target="_self">境外参团</a>
+					</li>
+					
+					<!--酒店票务-->
+					<li class="navli">
+						<a class="title" href="/hotel" target="_self">酒店票务</a>
+					</li>
+					
+					<!--酒店票务-->
+					<li class="navli">
+						<a class="title" href="/reception" target="_self">展会接待</a>
+					</li>
+					
+					<!--签证-->
+					<li class="navli">
+						<a class="title" href="/visa" target="_self">签证</a>
+					</li>
+				</ul>
+			
+			</div>
+			<div class="clear"></div>
+		</div>
+	</div>
+</div>
+<!--nav end-->

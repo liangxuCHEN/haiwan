@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>{dede:global.cfg_webname/}-{dede:field.title/}</title>
+
+		<meta name="keywords" content="{dede:field.keywords/}" />
+		<meta name="description" content="{dede:field.description function='html2text(@me)'/}" />
+
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery-1.9.1.js"></script>
+
+		<link href="{dede:global.cfg_templets_skin/}/style/base.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/searchbeta.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/jquery.nouislider.css" rel="stylesheet" type="text/css">
+		<link type="text/css" rel="stylesheet" href="{dede:global.cfg_templets_skin/}/style/layer.css" id="skinlayercss">
+
+		<link href="{dede:global.cfg_templets_skin/}/style/lrtk.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/tourbeta.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/responsiveslides.css" rel="stylesheet" type="text/css">
+
+		<link href="{dede:global.cfg_templets_skin/}/orderstyle/com.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/orderstyle/css.css" rel="stylesheet" type="text/css">
+		<script async="" src="{dede:global.cfg_templets_skin/}/orderstyle/analytics.js"></script>
+		<script type="text/javascript" async="" src="{dede:global.cfg_templets_skin/}/orderstyle/rt.js"></script>
+
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/orderstyle/jquery.slider.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/orderstyle/jquery.kxbdmarquee.js"></script>
+		<style>
+			.Passport{
+				width: 150px;
+			}
+			.formthdl,.formth{
+				margin-left: -10px;
+				width: 1200px;
+			}
+		</style>
+		<script>
+			$(function(){
+				$("#nav-destination").hide();
+			})
+		</script>
+		<script type="text/javascript">
+			<!--
+			(function(d) {
+				window.bd_cpro_rtid = "rH6snHc";
+				var s = d.createElement("script");
+				s.type = "text/javascript";
+				s.async = true;
+				s.src = location.protocol + "//cpro.baidu.com/cpro/ui/rt.js";
+				var s0 = d.getElementsByTagName("script")[0];
+				s0.parentNode.insertBefore(s, s0);
+			})(document);
+			 //-->
+		</script>
+		<script type="text/javascript">
+			function isIE() {
+				if (window.navigator.userAgent.indexOf("MSIE") >= 1) {
+					return true;
+				} else {
+					return false;
+				}
+			}
+			if (!isIE()) {
+				HTMLElement.prototype.__defineGetter__(
+					"innerText",
+					function() {
+						var anyString = "";
+						var childS = this.childNodes;
+						for (var i = 0; i < childS.length; i++) {
+							if (childS[i].nodeType == 1) {
+								anyString += childS[i].tagName == "BR" ? '\n' : childS[i].innerText;
+							} else if (childS[i].nodeType == 3) {
+								anyString += childS[i].nodeValue;
+							}
+						}
+						return anyString;
+					}
+				);
+			}
+			var personalInfo = function(num, x) {
+				var formthdl1 = document.getElementById("formthdl1");
+				var personal_main = document.getElementById("personal_info");
+				if (x == "add") {
+					var dl = document.createElement("dl");
+					dl.className = "formthdl";
+					dl.innerHTML = formthdl1.innerHTML;
+					dl.getElementsByTagName("dt")[0].innerHTML = num;
+					personal_main.appendChild(dl);
+				} else {
+					var dl = personal_main.getElementsByTagName("dl");
+					if (dl.length > num - 1) {
+						var removeObj = dl[dl.length - 1];
+						personal_main.removeChild(removeObj);
+					}
+				}
+			}
+			var addNumber = function(o, max) {
+				var _obj = o;
+				var numberMain = _obj.parentNode.getElementsByTagName("span")[0];
+				var input = _obj.parentNode.getElementsByTagName("input")[0];
+				var num = numberMain.innerText;
+				num = num * 1;
+				num += 1;
+				if (input.name == "order_number" && num <= max) {
+					personalInfo(num, "add");
+				}
+				if (num > max) {
+					num = max;
+				}
+				numberMain.innerHTML = num;
+				input.value = num;
+			}
+			var reduceNumber = function(o, min) {
+				var _obj = o;
+				var numberMain = _obj.parentNode.getElementsByTagName("span")[0];
+				var input = _obj.parentNode.getElementsByTagName("input")[0];
+				var num = numberMain.innerText;
+				num = num * 1;
+				num -= 1;
+				if (num < min) {
+					num = min;
+				}
+				numberMain.innerHTML = num;
+				input.value = num;
+				if (input.name == "order_number") {
+					personalInfo(num, "reduce");
+				}
+			}
+			var backCheck = function(rex, _value) {
+				return RegExp(rex).test(_value);
+			}
+			var checkString = function(o) {
+				var _value = o;
+				var rexString = "^[^\u0020\u3000][a-zA-Z\._\u4E00-\u9FA5\u0020\u3000\-]*$";
+				var rex = new RegExp(rexString);
+				return backCheck(rex, _value);
+			}
+			var checkNumber = function(o) {
+				var _value = o;
+				var rexString = "^[a-zA-Z0-9]*$";
+				var rex = new RegExp(rexString);
+				return backCheck(rex, _value);
+			}
+			var checkPhone = function(o) {
+				var _value = o;
+				var rexString = "^[0-9]*$";
+				var rex = new RegExp(rexString);
+				return backCheck(rex, _value);
+			}
+			var trim = function(str) {
+				return str.replace(/(^\s*)|(\s*$)/g, "");
+			}
+			var checkEmail = function(o) {
+				var _value = trim(o);
+				var rexString = "^([a-zA-Z0-9]+[_|\_|\.|\-]?)*[a-zA-Z0-9_]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$";
+				var rex = new RegExp(rexString);
+				return backCheck(rex, _value);
+			}
+			var checkFrom = function() {
+				var passport = "";
+				var nationlity = "";
+				var visaNumbers = 0;
+				var visaNumber = 0;
+				var flag = true;
+				var order_number = document.getElementById("order_number").value;
+				//check personal_info_list
+				var personal_info_list = document.getElementById("personal_info_list");
+				var dl = personal_info_list.getElementsByTagName("dl");
+				var dlList = new Array();
+				for (var i = 0; i < dl.length; i++) {
+					if (dl[i].className == "formthdl") {
+						dlList[dlList.length] = dl[i];
+					}
+				}
+				var personal_str = "{";
+				for (var i = 0; i < dlList.length; i++) {
+					var sex = dlList[i].getElementsByTagName("select")[0].value;
+					var surname = dlList[i].getElementsByTagName("input")[0].value;
+					surname = trim(surname);
+					var given = dlList[i].getElementsByTagName("input")[1].value;
+					given = trim(given);
+					var day = dlList[i].getElementsByTagName("select")[1].value;
+					var month = dlList[i].getElementsByTagName("select")[2].value;
+					var year = dlList[i].getElementsByTagName("select")[3].value;
+					if (sex == "") flag = false;
+					if (surname == "" || !checkString(surname)) flag = false;
+					if (given == "" || !checkString(given)) flag = false;
+					if (day == "") flag = false;
+					if (month == "") flag = false;
+					if (year == "") flag = false;
+					if (flag == false) {
+						alert("请仔细校验您填写的游客信息，其中姓名" + passport + "只能输入中文、英文字母、以及某些特定符号(,、-、_ 等) ^_^ Please carefully check your visitor information, including name and passport column can only enter the Chinese, English letters, and some specific symbols (,、-、_ ...)");
+					}
+					if (i != 0) {
+						personal_str += ",";
+					}
+					var passportNo = $(dlList[i]).find(".passprot-input").val();
+					personal_str += "\"personal" + (i + 1) + "\":{\"sex\":\"" + sex + "\",\"surname\":\"" + surname + "\",\"given\":\"" + given + "\",\"wasBornDate\":\"" + year + "-" + month + "-" + day + "\",\"passportNo\":\"" + passportNo + "\"}";
+				}
+				personal_str += "}";
+				if (flag) {
+					document.getElementById("order_personal_info").value = personal_str;
+				}
+				//personal_info_list end
+				//room check
+				var single_supplement = document.getElementById("single_supplement").value;
+				var double_room = document.getElementById("double_room").value;
+				var double_room_luxury = document.getElementById("double_room_luxury").value;
+				var three_room = document.getElementById("three_room").value;
+				var single_room = document.getElementById("single_room").value;
+				var room_check_number = 0;
+				if (double_room != 0) {
+					room_check_number += double_room * 2;
+				}
+				if (double_room_luxury != 0) {
+					room_check_number += double_room_luxury * 2;
+				}
+				if (three_room != 0) {
+					room_check_number += three_room * 3;
+				}
+				if (single_room != 0) {
+					room_check_number += single_room * 1;
+				}
+				if (single_supplement != 0) {
+					room_check_number += single_supplement * 1;
+				}
+				//不检查人数
+//				if (room_check_number != order_number) {
+//					alert("您的订单共有" + order_number + "人参加，您预定的酒店房间与参团人数不匹配，请检查 number of passengers and rooms does not match, Please check");
+//					flag = false;
+//				}
+				if (flag) {
+					document.getElementById("order_hotel_info").value = '{"flatshare":"' + single_supplement + '","double_room":"' + double_room + '","double_room_luxury":"' + double_room_luxury + '","three_room":"' + three_room + '","single_room":"' + single_room + '"}';
+				}
+				//room check end
+				//tickets check
+				var tickets_list_main = document.getElementById("tickets_list_main");
+				var ul = tickets_list_main.getElementsByTagName("ul");
+				var tickets_str = '{';
+				for (var i = 0; i < ul.length; i++) {
+					var num = ul[i].getElementsByTagName("input")[0].value;
+					var name = ul[i].getElementsByTagName("input")[1].value;
+					var price = ul[i].getElementsByTagName("input")[2].value;
+					if (i != 0) {
+						tickets_str += ",";
+					}
+					tickets_str += '"tickets' + (i + 1) + '":{"name":"' + name + '","price":"' + price + '","number":"' + num + '"}';
+				}
+				tickets_str += '}';
+				document.getElementById("order_tickets_info").value = tickets_str;
+				//tickets check end
+				//visaCheck
+				document.getElementById("order_visa").value = "";
+				//visaCheck end
+				document.getElementById("airport_order").value = "{}";
+				//contact_info
+				var contact_name = document.getElementById("contact_name").value;
+				contact_name = trim(contact_name);
+				var contact_sex = document.getElementById("contact_sex").value;
+				contact_sex = trim(contact_sex);
+				var sex = "";
+				if (contact_sex == 1) {
+					sex = "MR";
+				} else {
+					sex = "MS";
+				}
+				var contact_phone = document.getElementById("contact_phone").value;
+				contact_phone = trim(contact_phone);
+				var contact_address = document.getElementById("contact_address").value;
+				contact_address = trim(contact_address);
+				var contact_zipcode = document.getElementById("contact_zipcode").value;
+				contact_zipcode = trim(contact_zipcode);
+				var contact_email = document.getElementById("contact_email").value;
+				contact_email = trim(contact_email);
+				checkFlag = false;
+				contact_address = contact_address.replace(/[\s]/g, " ");
+				contact_phone = contact_phone.replace(/[\s]/g, "");
+				contact_zipcode = contact_zipcode.replace(/[\s]/g, "");
+				if (contact_name == "") checkFlag = true;
+				if (contact_phone == "") checkFlag = true;
+				if (contact_address == "") checkFlag = true;
+				if (contact_zipcode == "") checkFlag = true;
+				if (contact_email == "") checkFlag = true;
+//				if (!checkEmail(contact_email)) {
+//					alert("请正确填写您的电子邮件地址，这是联系您的重要依据 Please fill in your correct email address, this is contact your important basis.");
+//					flag = false;
+//				}
+				if (!checkString(contact_name)) {
+					alert("联系人姓名只能是中文、英文组合，并且不能以空格开头哟~ The contact name is Chinese, English composition, and cannot begin with a space.");
+					flag = false;
+				}
+				if (!checkPhone(contact_phone)) {
+					alert("手机号只能填写数字哟~ Mobile phone number can only fill in the numbers.");
+					flag = false;
+				}
+				if (checkFlag) {
+					alert("您所填写的个人资料信息是方便客服联系您的重要依据，请认真填写 You can fill in the personal information is important basis of convenient customer service to contact you, please fill in ^_^");
+					flag = false;
+				}
+				
+				document.getElementById("contact_info").value = '{"name":"' + contact_name + '","sex" : "' + sex + '","phone" : "' + contact_phone + '","address" : "' + contact_address + '","zipCode" : "' + contact_zipcode + '","eMail" : "' + contact_email + '"}';
+				//contact_info end
+				if (flag) {
+					alert("订单处理需要一定时间（通常在3~5秒），订单处理时，请您不要关闭当前浏览器窗口，耐心等待 ^_^ \n (Order processing needs certain time (usually around 10 seconds), order processing, please do not close the current browser window and wait)");
+					document.getElementById("submit").disabled = true;
+					document.getElementById("submit").className = "submit2";
+				}
+				return flag;
+			}
+		</script>
+		<!--[if IE 6]>
+       <script type="text/javascript" src="app/common/app/common/app/common/images/iepng.js"></script>
+        <script type="text/javascript">
+           DD_belatedPNG.fix('img,p,input,a,h3,h4');//多个标签之间用英文逗号隔开。
+      </script>
+<![endif]-->
+	</head>
+
+	<body class="index-bg wrap">
+
+		{dede:include filename="header.htm"/}
+
+		<!--contentt  start-->
+		<div class="contentt">
+			<div class="Theroute">
+				<img src="{dede:global.cfg_templets_skin/}/orderstyle/pr2.jpg">
+			</div>
+			<form action="/plus/travel/orderaction.php" method="post" onsubmit="return checkFrom();">
+				<!--OrderInformation  start-->
+				<div class="OrderInformation">
+					<div class="OrderInformationtop">
+						<h2>订单信息</h2>
+						<span> / order info</span>
+					</div>
+					<div class="OrderInformationcontent">
+						<div class="OrderInformationcontentleft"> 参团细节
+							<br>
+							<span>Tour Details</span> </div>
+						<div class="OrderInformationcontentright">
+							<dl>
+								<dt>路线名称 - Name of Tour:</dt>
+								<dd><a href="{dede:var.route.arcurl /}" target="_blank">{dede:var.route.title/}</a>
+								</dd>
+								<dd class="clear"></dd>
+							</dl>
+							<dl>
+								<dt>出发日期 - Date of Departure: </dt>
+								<dd>
+									{dede:var.startdate /}
+									<span style="color:#FF0000;">　(请核对您的出发日期)</span>
+								</dd>
+							</dl>
+							<!--TODO 
+							<dl style="clear:both;">
+								<dt>出发城市 - Place of Departure:</dt>
+								
+								<dd>
+									<select id="order_setout_city" name="order_setout_city" style="margin:2px 0 0 0;height:22px;line-height:22px;padding:0 0 0 10px;">
+										<option value="爱丁堡">爱丁堡</option>
+										<option value="格拉斯哥">格拉斯哥</option>
+									</select>
+									<span style="color:#FF0000;">　(请选择离您较近的出发城市)</span>
+								</dd>
+							</dl>
+							-->
+							<input type="hidden" name="order_setout_city" value="{dede:var.route.title/}">
+							<dl>
+								<dt>价格 - Price: </dt>
+								<dd>{dede:var.route.price/}</dd>
+							</dl>
+						</div>
+					</div>
+				</div>
+				<!--OrderInformation  end-->
+
+				<!--personaleInformation  start-->
+				<div style="clear:both;"></div>
+				<div class="personaleInformation">
+					<div class="personaleInformationtop">
+						<h2>填写个人信息 - <span style="font-size:12px;font-weight:normal;">Passengers' Details</span></h2>
+					</div>
+					<div class="personalselect">
+						<div class="personalselectleft">
+							<ul>
+								<li class="personalhoteltext">请选择参团人数</li>
+								<li class="personalnumber">
+									<input type="hidden" value="1" name="order_number" id="order_number">
+									<a href="javascript:;" onclick="reduceNumber(this,1);">
+										<img id="selectleft" src="{dede:global.cfg_templets_skin/}/orderstyle/selectleft.png" width="13" height="28">
+									</a><span>1</span>
+									<a href="javascript:;" onclick="addNumber(this,15);">
+										<img id="selectright" src="{dede:global.cfg_templets_skin/}/orderstyle/selectright.png" width="13" height="28">
+									</a>
+								</li>
+								<li>人</li>
+							</ul>
+						</div>
+						<div class="personalselectright">
+							<ul>
+								<li class="red">提示：</li>
+								<li class="personalselectrightcontent">姓名须与护照上的英文或汉语拼音姓名一致。若您需要帮助，可拨打VINER旅游24小时咨询电话：400-659-8905。<span style="color:#ff0000;">（我们不建议年龄超75岁的客人自行参团出游.）</span>
+									<br>
+									<span>Names must be matched with the one which on your passport. If you have any problems, please dial 24-hour helpline 400-659-8905.<span style="color:#ff0000;">（We don't suggest the clients over 75 years old to join in our tours.）</span></span>
+								</li>
+							</ul>
+						</div>
+					</div>
+					<div class="personalform" id="personal_info_list">
+						<dl class="formth">
+							<dt class="Title">性别<br>
+          Title</dt>
+							<dt class="Surname">姓<br>
+          Surname</dt>
+							<dt class="Names">名<br>
+          Given Names</dt>
+							<dt class="Birth">出生日期<br>
+          Date of Birth<br>
+                    (Day/Month/Year)
+                  </dt>
+                  <dt class="Passport">护照<br>
+          Passport No</dt>
+						</dl>
+						<dl class="formthdl" id="formthdl1">
+							<dt>1</dt>
+							<dd class="NamesInput Title">
+								<select name="personal_sex[]">
+									<option value="MR">MR(男)</option>
+									<option value="MS">MS(女)</option>
+								</select>
+							</dd>
+							<dd class="Surname">
+								<input type="text" name="personal_lastname[]" value="">
+							</dd>
+							<dd class="Surname Namesinput">
+								<input type="text" name="personal_firstname[]" value="">
+							</dd>
+							<dd class="Birth Title">
+								<select name="personal_day[]" class="css">
+									<option value="" selected="selected"></option>
+									<option value="01">1</option>
+									<option value="02">2</option>
+									<option value="03">3</option>
+									<option value="04">4</option>
+									<option value="05">5</option>
+									<option value="06">6</option>
+									<option value="07">7</option>
+									<option value="08">8</option>
+									<option value="09">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+									<option value="13">13</option>
+									<option value="14">14</option>
+									<option value="15">15</option>
+									<option value="16">16</option>
+									<option value="17">17</option>
+									<option value="18">18</option>
+									<option value="19">19</option>
+									<option value="20">20</option>
+									<option value="21">21</option>
+									<option value="22">22</option>
+									<option value="23">23</option>
+									<option value="24">24</option>
+									<option value="25">25</option>
+									<option value="26">26</option>
+									<option value="27">27</option>
+									<option value="28">28</option>
+									<option value="29">29</option>
+									<option value="30">30</option>
+									<option value="31">31</option>
+								</select>
+								/
+								<select name="personal_month[]" class="css">
+									<option value="" selected="selected"></option>
+									<option value="01">1</option>
+									<option value="02">2</option>
+									<option value="03">3</option>
+									<option value="04">4</option>
+									<option value="05">5</option>
+									<option value="06">6</option>
+									<option value="07">7</option>
+									<option value="08">8</option>
+									<option value="09">9</option>
+									<option value="10">10</option>
+									<option value="11">11</option>
+									<option value="12">12</option>
+								</select>
+								/
+								<select class="css" name="personal_year[]" style="width:60px;">
+									<option value="" selected="selected"></option>
+									<option value="2014">2014</option>
+									<option value="2013">2013</option>
+									<option value="2012">2012</option>
+									<option value="2011">2011</option>
+									<option value="2010">2010</option>
+									<option value="2009">2009</option>
+									<option value="2008">2008</option>
+									<option value="2007">2007</option>
+									<option value="2006">2006</option>
+									<option value="2005">2005</option>
+									<option value="2004">2004</option>
+									<option value="2003">2003</option>
+									<option value="2002">2002</option>
+									<option value="2001">2001</option>
+									<option value="2000">2000</option>
+									<option value="1999">1999</option>
+									<option value="1998">1998</option>
+									<option value="1997">1997</option>
+									<option value="1996">1996</option>
+									<option value="1995">1995</option>
+									<option value="1994">1994</option>
+									<option value="1993">1993</option>
+									<option value="1992">1992</option>
+									<option value="1991">1991</option>
+									<option value="1990">1990</option>
+									<option value="1989">1989</option>
+									<option value="1988">1988</option>
+									<option value="1987">1987</option>
+									<option value="1986">1986</option>
+									<option value="1985">1985</option>
+									<option value="1984">1984</option>
+									<option value="1983">1983</option>
+									<option value="1982">1982</option>
+									<option value="1981">1981</option>
+									<option value="1980">1980</option>
+									<option value="1979">1979</option>
+									<option value="1978">1978</option>
+									<option value="1977">1977</option>
+									<option value="1976">1976</option>
+									<option value="1975">1975</option>
+									<option value="1974">1974</option>
+									<option value="1973">1973</option>
+									<option value="1972">1972</option>
+									<option value="1971">1971</option>
+									<option value="1970">1970</option>
+									<option value="1969">1969</option>
+									<option value="1968">1968</option>
+									<option value="1967">1967</option>
+									<option value="1966">1966</option>
+									<option value="1965">1965</option>
+									<option value="1964">1964</option>
+									<option value="1963">1963</option>
+									<option value="1962">1962</option>
+									<option value="1961">1961</option>
+									<option value="1960">1960</option>
+									<option value="1959">1959</option>
+									<option value="1958">1958</option>
+									<option value="1957">1957</option>
+									<option value="1956">1956</option>
+									<option value="1955">1955</option>
+									<option value="1954">1954</option>
+									<option value="1953">1953</option>
+									<option value="1952">1952</option>
+									<option value="1951">1951</option>
+									<option value="1950">1950</option>
+									<option value="1949">1949</option>
+									<option value="1948">1948</option>
+									<option value="1947">1947</option>
+									<option value="1946">1946</option>
+									<option value="1945">1945</option>
+									<option value="1944">1944</option>
+									<option value="1943">1943</option>
+									<option value="1942">1942</option>
+									<option value="1941">1941</option>
+									<option value="1940">1940</option>
+								</select>
+							</dd>
+							<dd class="Passport Title">
+								<input type="text" class="passprot-input" name="personal_portno[]" value="">
+							</dd>
+						</dl>
+						<div id="personal_info">
+
+						</div>
+						<input type="hidden" name="order_personal_info" id="order_personal_info" value="">
+					</div>
+				</div>
+				<!--personaleInformation  end-->
+
+				<div style="clear:both;"></div>
+				<div class="personaleInformation">
+					<div class="personaleInformationtop personalehoteltop">
+						<h2>住宿服务要求（一日游客户可以不必填写） - <span style="font-size:12px;font-weight:normal;">Accommodation Requirements</span></h2>
+					</div>
+					<div class="personalselect personalhotel">
+						<div class="personalselectleft">
+							<ul>
+								<li class="personalhoteltext" style="line-height:18px;">和同性客人拼房
+									<br><span style="color:#999999;">Single Bed in Shard Twin Room</span>
+								</li>
+								<li class="personalnumber">
+									<input type="hidden" value="0" name="single_supplement" id="single_supplement">
+									<a href="javascript:;" onclick="reduceNumber(this,0);">
+										<img id="selectleft" src="{dede:global.cfg_templets_skin/}/orderstyle/selectleft.png" width="13" height="28">
+									</a><span>0</span>
+									<a href="javascript:;" onclick="addNumber(this,15);">
+										<img id="selectright" src="{dede:global.cfg_templets_skin/}/orderstyle/selectright.png" width="13" height="28">
+									</a>
+								</li>
+								<li>间</li>
+							</ul>
+							<ul>
+								<li class="personalhoteltext" style="line-height:18px;">双人大床房
+									<br><span style="color:#999999;">Double Room</span>
+								</li>
+								<li class="personalnumber">
+									<input type="hidden" value="0" name="double_room" id="double_room">
+									<a href="javascript:;" onclick="reduceNumber(this,0);">
+										<img id="selectleft" src="{dede:global.cfg_templets_skin/}/orderstyle/selectleft.png" width="13" height="28">
+									</a><span>0</span>
+									<a href="javascript:;" onclick="addNumber(this,15);">
+										<img id="selectright" src="{dede:global.cfg_templets_skin/}/orderstyle/selectright.png" width="13" height="28">
+									</a>
+								</li>
+								<li>间</li>
+							</ul>
+
+							<ul>
+								<li class="personalhoteltext" style="line-height:18px;">双人双床房
+									<br><span style="color:#999999;">Twin Room</span>
+								</li>
+								<li class="personalnumber">
+									<input type="hidden" value="0" name="double_room_luxury" id="double_room_luxury">
+									<a href="javascript:;" onclick="reduceNumber(this,0);">
+										<img id="selectleft" src="{dede:global.cfg_templets_skin/}/orderstyle/selectleft.png" width="13" height="28">
+									</a><span>0</span>
+									<a href="javascript:;" onclick="addNumber(this,15);">
+										<img id="selectright" src="{dede:global.cfg_templets_skin/}/orderstyle/selectright.png" width="13" height="28">
+									</a>
+								</li>
+								<li>间</li>
+							</ul>
+
+							<ul>
+								<li class="personalhoteltext" style="line-height:18px;">三人家庭房
+									<br><span style="color:#999999;">Triple Room </span>
+								</li>
+								<li class="personalnumber">
+									<input type="hidden" value="0" name="three_room" id="three_room">
+									<a href="javascript:;" onclick="reduceNumber(this,0);">
+										<img id="selectleft" src="{dede:global.cfg_templets_skin/}/orderstyle/selectleft.png" width="13" height="28">
+									</a><span>0</span>
+									<a href="javascript:;" onclick="addNumber(this,15);">
+										<img id="selectright" src="{dede:global.cfg_templets_skin/}/orderstyle/selectright.png" width="13" height="28">
+									</a>
+								</li>
+								<li>间</li>
+							</ul>
+
+							<ul>
+								<li class="personalhoteltext" style="line-height:18px;">单人房
+									<br><span style="color:#999999;">Single Room</span>
+								</li>
+								<li class="personalnumber">
+									<input type="hidden" value="0" name="single_room" id="single_room">
+									<a href="javascript:;" onclick="reduceNumber(this,0);">
+										<img id="selectleft" src="{dede:global.cfg_templets_skin/}/orderstyle/selectleft.png" width="13" height="28">
+									</a><span>0</span>
+									<a href="javascript:;" onclick="addNumber(this,15);">
+										<img id="selectright" src="{dede:global.cfg_templets_skin/}/orderstyle/selectright.png" width="13" height="28">
+									</a>
+								</li>
+								<li>间</li>
+							</ul>
+						</div>
+						<div class="personalselectright">
+							<ul>
+								<li class="red">提示：</li>
+								<li class="personalselectrightcontent">此团按照2人住一间房，如出现单男单女，原则上我们会安排和同性别客人拼房间，无需支付单间差价。
+									<br>
+									<span>We will arrange a twin room for you and another guest who is the same gender, you don't have to pay the price difference for a single room.</span>
+								</li>
+							</ul>
+							<ul style="margin-top:110px;">
+								<li class="red">提示：</li>
+								<li class="personalselectrightcontent">三人间酒店不保证有房。因此，其中一名客人有可能需要单独出来和其他同性客人拼房。
+									<br>
+									<span>We can not make a guarantee for a triple room, one of your party might be share a twin room with another guest who is the same gender if you choose this option.</span>
+								</li>
+							</ul>
+							<ul>
+								<li class="red">提示：</li>
+								<li class="personalselectrightcontent">如果要求住单间，需要额外支付<span class="red">70欧元</span>单间差价。
+									<br>
+									<span>Please notice that you have to pay an extra for <span class="red">£70</span> Pounds if you choose this option.</span>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div style="clear:both;"></div>
+				<div class="personaleInformation">
+					<div class="personaleInformationtop Ticketservice">
+						<h2>门票服务选项 - <span style="font-size:12px;font-weight:normal;">Ticket Service</span></h2>
+					</div>
+					<div class="personalselect personalhotel">
+						<div class="personalselectleft" id="tickets_list_main">
+							<div class="notVisa" style="font-size:18px;height:40px;line-height:40px;text-indent:2em;">无</div>
+						</div>
+						<div class="personalselectright">
+							<ul>
+								<li class="red">提示：</li>
+								<li class="personalselectrightcontent">请切实的统计想要去每个收取门票的景点的客人，选择真实有效的门票数量，以便您可以享受到愉快的旅程
+									<br>
+									<span>Practical statistics, please want to go to every guests receive tickets for scenic spots, choose real and
+	effective ticket number, so that you can enjoy the wonderful trip</span>
+								</li>
+							</ul>
+						</div>
+
+					</div>
+				</div>
+				<div style="clear:both;"></div>
+				<div style="clear:both;"></div>
+				<!--接机送机服务-->
+				<!--接机送机服务END-->
+				<div style="clear:both;"></div>
+				<div class="personaleInformation">
+					<div class="personaleInformationtop Contacttop">
+						<h2>填写联系人信息 - <span style="font-size:12px;font-weight:normal;">Contact Information</span></h2>
+					</div>
+					<div class="personalselect Contactconten">
+						<div class="Contactinfo">
+							<dl>
+								<dt style="line-height:14px;">姓名(中文或英文)<br><span style="color:#999999;">Full Name</span></dt>
+								<dd class="nameinfo">
+									<input type="text" name="contact_name" id="contact_name" value="">
+								</dd>
+							</dl>
+
+							<dl>
+								<dt style="line-height:14px;">姓别<br><span style="color:#999999;">Title</span></dt>
+								<dd class="sex">
+									<input type="radio" name="sex" checked="checked" onclick="setContactSex(1);"><span>MR</span>
+								</dd>
+								<dd class="sex">
+									<input type="radio" name="sex" onclick="setContactSex(2);"><span>MS</span>
+								</dd>
+							</dl>
+
+							<dl>
+								<dt style="line-height:14px;">联系电话<br><span style="color:#999999;">Contact Number</span></dt>
+								<dd class="nameinfo">
+									<input type="text" value="" name="contact_phone" id="contact_phone">
+								</dd>
+							</dl>
+
+							<dl class="addressinfo1">
+								<dt style="line-height:20px;">地址<br><span style="color:#999999;">Address</span></dt>
+								<dd class="addressinfo">
+									<textarea name="contact_address" id="contact_address"></textarea>
+								</dd>
+							</dl>
+
+							<dl>
+								<dt style="line-height:14px;">邮编<br><span style="color:#999999;">Post Code</span></dt>
+								<dd class="nameinfo">
+									<input type="text" value="" name="contact_zipcode" id="contact_zipcode">
+								</dd>
+							</dl>
+
+							<dl>
+								<dt style="line-height:14px;">电子邮件<br><span style="color:#999999;">E-mail</span></dt>
+								<dd class="nameinfo">
+									<input type="text" value="" name="contact_email" id="contact_email">
+								</dd>
+							</dl>
+							
+							<dl>
+								<dt style="line-height:14px;">QQ<br><span style="color:#999999;"></span></dt>
+								<dd class="nameinfo">
+									<input type="text" value="" name="contact_qq" id="contact_qq">
+								</dd>
+							</dl>
+							
+							<dl>
+								<dt style="line-height:14px;">微信<br><span style="color:#999999;"></span></dt>
+								<dd class="nameinfo">
+									<input type="text" value="" name="contact_wechat" id="contact_wechat">
+								</dd>
+							</dl>
+							<input type="hidden" name="contact_sex" id="contact_sex" value="1">
+						</div>
+						<div class="personalselectright personalselectright1">
+							<ul>
+								<li class="red">重要提示：</li>
+								<li class="personalselectrightcontent1">请务必正确填写地址、手机、邮箱等，特别是需要签证材料的客人。
+									<br>
+									<span style="color:#999999;">Please offer the correct address, cellphone number and e-mail address, specially for the guests who need visa application.</span>
+								</li>
+							</ul>
+						</div>
+						<input type="hidden" name="contact_info" id="contact_info" value="">
+					</div>
+				</div>
+
+				<div style="clear:both;"></div>
+				<div class="personaleInformation">
+					<div class="personaleInformationtop other">
+						<h2>其他要求 - <span style="font-size:12px;font-weight:normal;">Other Requirements</span></h2>
+					</div>
+
+					<div class="othercontent" style="border:none;">
+						<textarea name="requirements" style="width:560px;float:left;border:solid 1px #DDDDDD;"></textarea>
+						<div style="float:left;width:330px;font-size:12px;margin:0 0 0 20px;line-height:24px;">
+							<b style="float:left;width:40px;color:#FF0000;font-weight:normal;">提示：</b>
+							<div style="float:left;width:280px;color:#222222;">
+								请补充说明住宿需求（Eg:张三拼房，李四，王五合住）；
+								<br>其他方面的需求说明；
+								<br>如客人没有填写，默认为无需此项服务或服从旅行社安排。
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div style="clear:both;"></div>
+				<div class="submitinfo">
+					<div class="submitinfobtn">
+						<input class="submit" type="submit" id="submit" value="计算团费 - Calculate Tour Cost">
+					</div>
+				</div>
+				<input type="hidden" value="post" name="action">
+				<input type="hidden" name="hash" value="{dede:var.hash /}">
+				<input type="hidden" name="startdate" value="{dede:var.startdate /}">
+				<input type="hidden" name="route_id" value="{dede:var.route.id/}">
+				<input type="hidden" name="price" value="{dede:var.route.price/}" >
+				<input name="order_hotel_info" id="order_hotel_info" type="hidden" value="">
+				<!--下面的字段都没用-->
+				<input type="hidden" name="order_visa" id="order_visa" value="">
+				<input type="hidden" name="order_tickets_info" id="order_tickets_info" value="">
+				<input type="hidden" value="0" name="order_dinner" id="order_dinner">
+				<input type="hidden" value="" name="eus_visa" id="eus_visa">
+				<input type="hidden" value="{}" name="airport_order" id="airport_order">
+				<!--订单的接送机信息-->
+				<input type="hidden" value="1" name="login_check" id="login_check">
+				<input type="hidden" value="1" name="group_check" id="group_check">
+
+			</form>
+		</div>
+		<!--contentt  end-->
+
+		<script type="text/javascript">
+			//帮助下拉
+			$(".top-rightli").hover(function() {
+					//$(".datetop li").removeClass("dateselect");
+					//$(this).addClass("dateselect");
+					$(".top-rightli dl").hide();
+					$(".top-rightli dl").eq($(".top-rightli").index(this)).show();
+				}, function() {
+					$(".top-rightli dl").hide();
+				})
+				//站点下拉
+			 $(".country_more").hover(function() {
+				$(".country_more div").hide();
+				$(".country_more div").eq($(".country_more").index(this)).show();
+			}, function() {
+				$(".country_more div").hide();
+			})
+		</script>
+
+		<script type="text/javascript">
+			var checkSubmit = function(o) {
+				if (o.checked != false) {
+					document.getElementById("submit").disabled = false;
+					document.getElementById("submit").className = "submit";
+				} else {
+					document.getElementById("submit").disabled = true;
+					document.getElementById("submit").className = "submit2";
+				}
+			}
+			var setContactSex = function(num) {
+				document.getElementById("contact_sex").value = num;
+			}
+			var qianzYes = function(o) {
+				var _obj = o;
+				var numberMain = _obj.parentNode.getElementsByTagName("span")[0];
+				var input = _obj.parentNode.getElementsByTagName("input")[0];
+				numberMain.innerHTML = "是";
+				input.value = 2;
+				document.getElementById("visa_info").style.display = "";
+			}
+			var qianzNo = function(o) {
+				var _obj = o;
+				var numberMain = _obj.parentNode.getElementsByTagName("span")[0];
+				var input = _obj.parentNode.getElementsByTagName("input")[0];
+				numberMain.innerHTML = "否";
+				input.value = 1;
+				document.getElementById("visa_info").style.display = "none";
+			}
+			var catchEvent = function(eventObj, event, eventHandler) {
+				if (eventObj.addEventListener) {
+					eventObj.addEventListener(event, eventHandler, false);
+				} else if (eventObj.attachEvent) {
+					event = "on" + event;
+					eventObj.attachEvent(event, eventHandler);
+				}
+			}
+			var orderLoad = function() {
+				var numListMain = document.getElementsByTagName("body")[0].getElementsByTagName("div");
+				var numList = new Array();
+				for (var i = numListMain.length; i--;) {
+					if (numListMain[i].className == "personaleInformation") {
+						numList[numList.length] = numListMain[i];
+					}
+				}
+				for (var i = 0; i < numList.length; i++) {
+					var nowCla = "num" + (numList.length - i);
+					numList[i].getElementsByTagName("h2")[0].className = nowCla;
+				}
+			}
+			catchEvent(window, "load", orderLoad);
+		</script>
+	</body>
+
+</html>

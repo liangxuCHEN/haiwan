@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="renderer" content="webkit">
+		<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+		<meta name="keywords" content="{dede:field name='keywords'/}" />
+		<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+		
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery-1.9.1.js"></script>
+		<link href="{dede:global.cfg_templets_skin/}/style/base.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/searchbeta.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/jquery.nouislider.css" rel="stylesheet" type="text/css">
+		<link type="text/css" rel="stylesheet" href="{dede:global.cfg_templets_skin/}/style/layer.css" id="skinlayercss">
+
+		<link href="{dede:global.cfg_templets_skin/}/style/lrtk.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/tourbeta.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/responsiveslides.css" rel="stylesheet" type="text/css">
+		
+		<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style2/base-v3.css">
+		<link rel="stylesheet" type="text/css" href="{dede:global.cfg_templets_skin/}/style2/style-v3.css">
+		
+	</head>
+
+	<body>
+		<!-- header -->
+		{dede:include filename="header.htm"/}
+		<!-- header End -->
+
+		<div class="wrapper">
+			<!-- about-box -->
+			<div class="about-box clearfix">
+				<div class="about-left">
+					<div class="about-menu">
+						<ul class="about-menu-ul">
+							{dede:channelartlist typeid="top"}
+							<li class="selected"><a href='{dede:field.typeurl/}'>{dede:field.typename/}<b></b></a>
+							</li>
+							{/dede:channelartlist}
+						</ul>
+					</div>
+				</div>
+				<div class="about-cont">
+					<div class="about-detail">
+						<div class="about-title">
+							<h2>{dede:field name='typename'/}</h2>
+						</div>
+						<div class="about-info">
+
+							<div class="about-txt mb15">
+								{dede:field.content/}
+							</div>
+							
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- about-box end -->
+		</div>
+
+		<!-- Footer -->
+		{dede:include filename="footer.htm"/}
+		<!-- Footer End-->
+
+	</body>
+
+</html>

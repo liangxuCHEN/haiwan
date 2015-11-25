@@ -1,0 +1,41 @@
+@charset "utf-8";
+/* *{font:normal 12px/2em '微软雅黑';padding:0;margin:0}
+ul,li{list-style:none}
+a{ color:#09f;} */
+/*#xzw_starSys{width:400px;border:1px solid #ccc;padding:50px;margin:100px auto}*/
+#xzw_starBox{
+	position:relative;
+	width:100px;
+}
+#xzw_starSys{
+	margin-top:2px;
+}
+#xzw_starSys .description{clear:both;padding:10px 0px}
+#xzw_starSys .stars{
+	height:20px;
+	width:100px;
+	position:relative;
+	background:url(../images/lanrentuku.png) repeat-x;
+	cursor:pointer;
+	background-size:20px;
+}
+#xzw_starSys .stars li{float:left;padding:0px;margin:0px}
+#xzw_starSys .stars li a{display:block;width:20px;height:18px;overflow:hidden;text-indent:-9999px;position:absolute;z-index:5}
+
+#xzw_starSys .stars a.two-stars{left:20px}
+
+#xzw_starSys .stars a.three-stars{left:40px}
+
+#xzw_starSys .stars a.four-stars{left:60px}
+
+#xzw_starSys .stars a.five-stars{left:80px}
+
+#xzw_starSys .current-rating{
+	background:url(../images/lanrentuku.png) 0 -21px repeat-x;
+	background-size:20px;
+	position:absolute;
+	height:20px;
+	z-index:1;
+	top:0;
+	left:0
+}

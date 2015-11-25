@@ -1,0 +1,133 @@
+/*! http://responsiveslides.com v1.54 by @viljamis */
+
+.rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  }
+  
+/*Begin*/
+.homewrap-slider {
+	position : relative	
+}
+
+.homewrap_tabs {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding-top: 14px;
+	height: 28px;
+	text-align: center;
+	z-index:4;
+}
+
+.homewrap_nav {
+	position : absolute;
+	top : 35%;
+	width: 60px;
+	height: 150px;
+	z-index : 2;
+}
+.homewrap-slider .next {
+	background: url(icon-right.png) no-repeat;
+	right : 0;
+}
+.homewrap-slider .prev {
+	background: url(icon-left.png) no-repeat;
+	left : 0;
+}
+.homewrap-slider li a img{
+	height:450px;
+	width:1920px;
+	text-align:center;
+}
+.homewrap_tabs li {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	width: 20px;
+	height: 20px;
+	background: url(d_flash.png) no-repeat;
+	opacity: 1;
+	filter: alpha(opacity = 100);
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.homewrap_tabs .homewrap_here {
+	background: url(d_flash-hover.png) no-repeat;
+	opacity: 1;
+}
+/*End*/
+/*Begin机加酒店酒店图片轮播*/
+.hotel_img_tabs {
+	position: absolute;
+	/* left: 0; */
+	right: 0;
+	bottom: 0;
+	padding-top: 14px;
+	height: 28px;
+	text-align: center;
+	z-index:4;
+}
+
+.hotel_img_nav {
+	position : absolute;
+	top : 35%;
+	width: 60px;
+	height: 150px;
+	z-index : 2;
+}
+.hotel_img-slider .next {
+	background: url(icon-right.png) no-repeat;
+	right : 0;
+}
+.hotel_img-slider .prev {
+	background: url(icon-left.png) no-repeat;
+	left : 0;
+}
+.hotel_img_tabs li {
+	display: inline-block;
+	zoom: 1;
+	*display: inline;
+	width: 20px;
+	height: 20px;
+	background: url(d_flash.png) no-repeat;
+	opacity: 1;
+	filter: alpha(opacity = 100);
+	margin: 0 5px;
+	cursor: pointer;
+}
+
+.hotel_img_tabs .hotel_img_here {
+	background: url(d_flash-hover.png) no-repeat;
+	opacity: 1;
+}
+/*End*/

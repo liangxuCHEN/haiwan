@@ -1,0 +1,125 @@
+/*
+Skin Name: Nivo Slider Default Theme
+Description: The default skin for the Nivo Slider.
+Version: 1.3
+Author: Gilbert Pellegrom
+Author URI: http://dev7studios.com
+Supports Thumbs: true
+*/
+.theme-default {
+	position: relative;
+}
+.theme-default .nivoSlider {
+	position:relative;
+}
+.theme-default .nivoSlider img {
+	position:absolute;
+	top:0px;
+	left:0px;
+	display:none;
+}
+.theme-default .nivoSlider a {
+	border:0;
+	display:block;
+}
+.theme-default .nivo-controlNav {
+	text-align: center;
+	position: absolute;
+	bottom:38px;
+	display:none;
+	
+}
+.theme-default .nivo-controlNav a {
+	display:none;
+	zoom: 1;
+	width:100%; /*22px;*/
+	height: 100%; /*22px;*/
+	border:0;
+	margin: 0 2px;
+}
+.theme-default .nivo-controlNav a.active {
+	background-position:0 -22px;
+}
+.theme-default .nivo-directionNav a {
+	display:block;
+	width:90px;
+	height:75px;
+	text-indent:-9999px;
+	border:0;
+	opacity: 0;
+	-webkit-transition: all 200ms ease-in-out;
+    -moz-transition: all 200ms ease-in-out;
+    -o-transition: all 200ms ease-in-out;
+    transition: all 200ms ease-in-out;
+}
+.theme-default:hover .nivo-directionNav a { 
+	opacity: 1; 
+}
+.theme-default a.nivo-nextNav {
+	background: url(icon-right.png) no-repeat;
+}
+.theme-default a.nivo-prevNav {
+	background: url(icon-left.png) no-repeat;
+}
+
+.theme-default .nivo-caption {
+    font-family: Helvetica, Arial, sans-serif;
+}
+.theme-default .nivo-caption a {
+    color:#fff;
+    border-bottom:1px dotted #fff;
+}
+.theme-default .nivo-caption a:hover {
+    color:#fff;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled {
+	width: 100%;
+	min-width: 1300px;
+	margin: 0px auto; 
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled a {
+	width: 100%; /*auto;*/
+	height: 100%; /*auto;*/
+	background: none;
+	margin-bottom: 5px;
+}
+.theme-default .nivo-controlNav.nivo-thumbs-enabled img {
+	display: block;
+}
+.lunboWrap .nivo-control {
+	display:none;
+	position: absolute;
+	left: 1%;
+}
+.lunboWrap .nivo-control.active {
+	display:block;
+	-webkit-transition:all 200ms ease-in; /* some CSS3 transition effect */
+	-moz-transition:all 200ms ease-in;
+	-o-transition:all 200ms ease-in;
+	transition:all 200ms ease-in;
+}
+.nivo-bullets {
+	display:none;/* lyj 20140314*/
+	position:absolute;
+	bottom:8px;
+	left:45%;
+}
+.nivo-bullets a {
+	display:block;
+	text-indent:-9999px; /* text (numbers) are shifted (invisible) */
+	text-decoration:none;
+	width:18px; /* bullet width */
+	height:18px; /* bullet height */
+	background:url(d_flash.png) no-repeat; /* light grey */
+	position:relative;
+	margin-left:16px; /* space between bullets */
+	cursor:pointer;
+	float:left; 
+	-webkit-transition:all 200ms ease-in; /* some CSS3 transition effect */
+	-moz-transition:all 200ms ease-in;
+	-o-transition:all 200ms ease-in;
+	transition:all 200ms ease-in;
+}
+.nivo-bullets a.active { /* Change of color if active */
+	background:url(d_flash-hover.png) no-repeat;
+}

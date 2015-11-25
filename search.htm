@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+		<meta name="keywords" content="{dede:field name='keywords'/}" />
+		<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery-1.9.1.js"></script>
+		<link href="{dede:global.cfg_templets_skin/}/style/base.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/searchbeta.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/jquery.nouislider.css" rel="stylesheet" type="text/css">
+		<link type="text/css" rel="stylesheet" href="{dede:global.cfg_templets_skin/}/style/layer.css" id="skinlayercss">
+	</head>
+
+	<body>
+		<div class="wrap">
+			{dede:include file="header.htm"/}
+			<!--content begin-->
+			<div class="content">
+				<div class="position">
+
+				</div>
+
+				<input type="hidden" name="" id="search_header_name" value="">
+				<input type="hidden" id="search_keyword" value="">
+				<!--select begin -->
+
+				<div class="filtrate">
+					<div class="city_theme">
+						<!--默认的时候不显示当前选择-->
+
+						<div class="current_select">
+							<div class="title">你已选择</div>
+							<div class="text">	
+								{dede:typeTree runphp="yes"}
+								@me = "";
+								foreach($GLOBALS['typeTreeArray'] as $type){
+									@me.="<span rel='country' class='cur_content'><span>$type[typename]</span>";
+									@me.="	<a href='javascript:void(0)' rel='$type[id]' id='search_country_en' class='search_cancel'>×</a>";
+									@me.="</span>";
+								}
+								{/dede:typeTree}
+		
+								<div class="clear"></div>
+							</div>
+						</div>
+
+						<div class="select_city">
+			              <div class="title">目的地</div>
+			              
+			              <div class="text">
+			                <ul class="clearfix">
+			                  	{dede:channel type="son"}
+			                    <li><a href="javascript:void(0)" class="search_city_click" rel="[field:id/]">[field:typename/]</a></li>
+								{/dede:channel}
+			                </ul>
+			              </div>     
+			            </div>
+						
+					</div>
+
+					<!-- 条件选择隐藏域-->
+					<input id="cityName" type="hidden" value="{dede:var name='typeid' function='@me = $GLOBALS[typeid]' /}">
+					<input id="themeEname" type="hidden" value="">
+					<input id="labelName" type="hidden" value="">
+					<!--time begin-->
+					<div class="time">
+						<div class="title">时间</div>
+						<div class="text">
+							<span class="in">
+            <input class="start_date" id="start_date" type="text" value="" readonly="readonly">
+          </span>
+							<span style="padding:0px 6px;">至</span>
+							<span class="out">
+         	  <input class="end_date" id="end_date" type="text" value="" readonly="readonly">
+          </span>
+							<input type="button" value="确定" class="searchUpdateT" id="searchTime" u-behavior="search_searchTime">
+						</div>
+					</div>
+					<!--time end-->
+
+					<input type="hidden" id="langua" value="">
+
+					<div class="filtrate-more">
+						<a id="showAll" style="cursor: pointer" u-behavior="search_showAll">
+							<img class="more" src="{dede:global.cfg_templets_skin/}/style/more.png">
+							<img class="more2" src="{dede:global.cfg_templets_skin/}/style/more2.png" style="display: none;">
+						</a>
+					</div>
+				</div>
+
+				<!--select end-->
+
+				<div class="filtrate-content">
+					<!--search list begin -->
+
+					<div class="filtrate-imglist" style="min-height: 500px;">
+
+						<div class="search_jg">
+							<b>排序</b>
+							<input type="hidden" id="orderType" value="allOrderByConditions">
+							<a id="sortdefault" href="javascript:sort_by_default();" title="默认" class="arrange" u-behavior="search_sortdefault">默认</a>
+							<!--
+							<a id="sortduration" href="javascript:sort_by_duration();" class="arrange" title="由短到长" u-behavior="search_sortduration">时间</a>
+							<a id="sortprice" href="javascript:sort_by_price();" title="由小到大" class="arrange" u-behavior="search_sortprice">价格</a>
+							<span class="pricerange">
+								<input type="hidden" id="maxPrice" value="">
+								<input type="hidden" id="minPrice" value="">
+								价格区间<input type="text" value="0" class="inprice" id="lowPrice">
+								-<input type="text" class="inprice" value="280000" id="highPrice">
+								<input type="button" value="确定" class="btn" id="searchPrice" u-behavior="search_searchPrice">
+							</span>
+							-->
+							<div class="page_top">
+
+								<span>1/3</span>
+
+							</div>
+							<div class="clear"></div>
+							<div class="clear"></div>
+						</div>
+
+						<input type="hidden" id="bfd_search_res" value="1">
+						<!--loop begin-->
+						{dede:list}
+						<div class="product">
+							<a href="[field:arcurl/]" target="_blank" class="ahref">
+								<div class="img">
+									<ul>
+
+										<li>
+											<img class="lazy_img" src="/templets/haiwan/style/loading.gif" data-original="[field:litpic/]">
+										</li>
+
+									</ul>
+								</div>
+								<div class="intro" style="display:none;">
+									<b></b>
+									<div class="desc">
+										[field:description function='cn_substr(@me,80)'/]... 
+										<b class="last"></b>
+									</div>
+								</div>
+							</a>
+
+							<div class="name">
+								<a target="_blank" href="[field:arcurl/]">[field:title/]</a>
+							</div>
+							<div class="price">
+								<div class="btn new_price">
+									<div class="floatL unit_price">
+										<em>¥</em><span>[field:price/]</span>
+									</div>
+									<!--
+									<div class="floatL md">
+										<div class="discount">9折</div>
+										<div class="market"><s>￥[field:price/]</s>
+										</div>
+									</div>
+									-->
+									<div class="floatR btn">
+										<a href="[field:arcurl/]" target="_blank">立即预订</a>
+									</div>
+
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
+						{/dede:list}
+						
+
+						<!--loop end-->
+						<div class="clear"></div>
+
+						<!--page begin-->
+
+						<div class="page">
+
+						 {dede:pagelist listitem="index,end,pre,next,pageno" listsize="4"/}
+
+						</div>
+
+						<!--page end-->
+					</div>
+
+					<!--seare list end -->
+					<!-- right begin -->
+					<div class="searchrgt">
+						<!-- 热门项目 begin  -->
+
+						<!-- 相关推荐 begin  -->
+
+						<div class="hotlists">
+							<div class="rtitle">热门推荐</div>
+							 {dede:arclist flag='c' titlelen='42' row='10' typeid='all'}
+							<dl>
+								<dt>
+	                				<a target="_blank" href="[field:arcurl/]">
+						                <img class="lazy_img" src="[field:litpic/]">
+						            </a>
+	             				</dt>
+								<dd>
+									<a target="_blank" href="http://www.haiwan.com/tourDetail/21196.html">
+										[field:title function='cn_substr(@me,80)'/]
+									</a>
+									<div class="hotprice">￥<b>[field:price/]</b>
+									</div>
+								</dd>
+							</dl>
+							{/dede:arclist}
+							
+
+						</div>
+
+						<!-- 相关推荐 end -->
+
+					</div>
+
+					<!-- right end -->
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!--content end-->
+			<div class="backToTop" id="backToTop" style="display:none"></div>
+			<!--footer begin-->
+			
+			{dede:include file="footer.htm"/}
+			
+			<!--footer end-->
+		</div>
+		<div id="load_img" style="display:none">
+		<img src="{dede:global.cfg_templets_skin/}/style/xubox_loading2.gif">&nbsp;搜索中...&nbsp; </div>
+
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/JSON3.min.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/unslider.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/common.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/searchbeta.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/zebra_datepicker.src.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.nouislider.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/layer.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.scrollstop.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.lazyload.min.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/blockUI.js"></script>
+
+		<div class="Zebra_DatePicker" style="left: -1000px; display: none;">
+			<table class="dp_header" style="width: 210px;">
+				<tbody>
+					<tr>
+						<td class="dp_previous dp_blocked">«</td>
+						<td class="dp_caption">undefined年 undefined</td>
+						<td class="dp_next dp_blocked">»</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="dp_daypicker">
+				<tbody>
+					<tr>
+						<th>一</th>
+						<th>二</th>
+						<th>三</th>
+						<th>四</th>
+						<th>五</th>
+						<th>六</th>
+						<th>日</th>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="dp_monthpicker" style="width: 210px; height: 217px; display: none;"></table>
+			<table class="dp_yearpicker" style="width: 210px; height: 217px; display: none;"></table>
+			<table class="dp_footer" style="width: 210px;">
+				<tbody>
+					<tr>
+						<td class="dp_today" style="width: 100%;">今日</td>
+						<td class="dp_clear" style="width: 50%; display: none;">清除</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="Zebra_DatePicker" style="left: -1000px; display: none;">
+			<table class="dp_header" style="width: 210px;">
+				<tbody>
+					<tr>
+						<td class="dp_previous dp_blocked">«</td>
+						<td class="dp_caption">undefined年 undefined</td>
+						<td class="dp_next dp_blocked">»</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="dp_daypicker">
+				<tbody>
+					<tr>
+						<th>一</th>
+						<th>二</th>
+						<th>三</th>
+						<th>四</th>
+						<th>五</th>
+						<th>六</th>
+						<th>日</th>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="dp_monthpicker" style="width: 210px; height: 217px; display: none;"></table>
+			<table class="dp_yearpicker" style="width: 210px; height: 217px; display: none;"></table>
+			<table class="dp_footer" style="width: 210px; display: none;">
+				<tbody>
+					<tr>
+						<td class="dp_today" style="width:50%">false</td>
+						<td class="dp_clear" style="display: none;">清除</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<iframe allowtransparency="true" id="add_speed_bfd" frameborder="0" scrolling="no" style="height: 0px; width: 0px; float: none; position: absolute; overflow: hidden; z-index: 333333; margin: 0px; padding: 0px; border: 0px none; background: none;"></iframe>
+
+	</body>
+
+</html>

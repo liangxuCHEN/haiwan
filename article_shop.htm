@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+		<meta name="keywords" content="{dede:field name='keywords'/}" />
+		<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery-1.9.1.js"></script>
+		<link href="{dede:global.cfg_templets_skin/}/style/base.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/searchbeta.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/jquery.nouislider.css" rel="stylesheet" type="text/css">
+		<link type="text/css" rel="stylesheet" href="{dede:global.cfg_templets_skin/}/style/layer.css" id="skinlayercss">
+
+		<link href="{dede:global.cfg_templets_skin/}/style/lrtk.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/tourbeta.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/responsiveslides.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/typeahead.js"></script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--nav begin-->
+			{dede:include file="header.htm"/}
+			<!--nav end-->
+			<!--content begin-->
+			<div class="content">
+				<div class="position">
+					{dede:field name='position'/}
+				</div>
+				<div class="tour_show text">
+					<div class="tour-title">
+						<h3>{dede:field.title/}</h3>
+
+						<ul class=" clearfix">
+							<li class="confirm-img"></li>
+							<li class="confirm-note">立即确认</li>
+						</ul>
+
+						<div class="clear"></div>
+					</div>
+					<div class="tour-title-sec">
+
+						<!-- 副标题 -->
+						<div class="title-sec-word">
+
+						</div>
+						<!-- 打包说明 -->
+
+						<!-- 起价说明 -->
+						<div class="price-note" id="qijiashuoming">
+							<b class="type_tips"></b>
+							<span class="type_tips">价格说明</span>
+
+							<span class="tips_contentqjsm" style="display:none">
+						                  本价格区间为所有可选项价格组合，实际产品价格会根据您所选择的出发日期、出行人数、服务标准以及所选附加服务的不同而有所差别；最终价格以您提交订单，本公司确认后为准；
+					                  <div class="ponity"></div>
+					                  <div class="ponity_shadow"></div>
+						     </span>
+
+						</div>
+						<!-- 二次确认  -->
+
+						<div class="clear"></div>
+					</div>
+					<input type="hidden" id="isErpImage" value="0">
+					<input type="hidden" id="imgsmaList" value="">
+					<div class="show-left">
+						<div class="tour_img_slider" style="position: relative;">
+							<ul class="rslides tourSlider tourSlider1" id="tour-slider">
+								{dede:field.pic1/}
+							</ul>
+							
+						</div>
+						<div class="info">
+							<span>
+              <img src="{dede:global.cfg_templets_skin/}/style/left_comma.png" alt="" height="20" class="left-comma">
+            </span> {dede:field.pic2/}<span>
+              <img src="{dede:global.cfg_templets_skin/}/style/right_comma.png" alt="" height="20" class="right-comma">
+            </span>
+						</div>
+
+					</div>
+
+					<div class="show-right tour-buy" id="showBuyHtml">
+						<div class="price-unit">
+
+							<div class="floatL price-cur-wrap">
+								<p>优惠价： <span class="buy-price">￥ <b>{dede:field.price/}</b></span>
+									<!--
+									<span class="price-discount">6.8折</span>
+									-->
+								</p>
+								<!--
+								<p>市场价： <s>￥ 345</s>
+								</p>
+								-->
+							</div>
+
+						</div>
+						<div class="tour-type" id="ajaxGetPrice">
+							<ul class="clearfix">
+
+								<li>
+									<span class="buy-grey">产品编码：</span><span class="en">{dede:field.id/}</span>
+								</li>
+								<!--
+								<li>
+									<span class="buy-grey">产品类型：</span><span class="en">半日游</span>
+								</li>
+
+								<li>
+									<span class="buy-grey">旅行日程：</span><span class="en">1小时30分</span>
+								</li>
+								-->
+								<li>
+									<span class="buy-grey">目的地：</span><span class="en">{dede:field.typename/}</span>
+								</li>
+								<!--
+								<li style="clear:both;width:100%;">
+									<span class="buy-grey">服务语言：</span>
+	
+									<span class="en">英语</span>
+
+								</li>
+								-->
+							</ul>
+						</div>
+						
+						<!--
+						<div class="tab">
+							<ul>
+								<li style="clear:both;width:100%;">
+									<span class="buy-grey">产品标签：</span>
+
+									<span style="background-color:#fb6ca2;color: #ffffff;">世界遗产</span>&nbsp;&nbsp;
+
+									<span style="background-color:#ff9c55;color: #ffffff;">地标建筑</span>&nbsp;&nbsp;
+
+									<span style="background-color:#72d4e2;color: #ffffff;">热门景点</span>&nbsp;&nbsp;
+
+									<span style="background-color:#dcc7fb;color: #ffffff;">艺术文化</span>&nbsp;&nbsp;
+
+								</li>
+							</ul>
+						</div>
+						-->
+						<div class="tab rq">
+							<ul>
+								<ul>
+									<li><span class="buy-grey">出游人群：</span>
+										{dede:field.buy-grey/}
+									</li>
+								</ul>
+							</ul>
+						</div>
+						<div class="buy-total"></div>
+						<p class="tips">
+							提供多种旅游选择，点击下面按钮即可查看
+						</p>
+						<div class="btn">
+							<span class="submit" onclick="selectDate();">立即预订</span>
+						</div>
+						<div class="info-bz">
+							<ul>
+								<li>
+									<img src="{dede:global.cfg_templets_skin/}/style/icon-select.png"> 全网同类最低价</li>
+								<li>
+									<img src="{dede:global.cfg_templets_skin/}/style/icon-select.png"> 甄选目的地产品</li>
+								<li>
+									<img src="{dede:global.cfg_templets_skin/}/style/icon-select.png"> 如实描述有保障</li>
+							</ul>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				<!--六重保障-->
+				<div class="tour-six-security">
+					<dl>
+						<dt><b class="djcn"></b>目的地直采</dt>
+						<dd>
+							<p>旅行者不只是观光者</p>
+						</dd>
+					</dl>
+					<dl>
+						<dt><b class="tdbz"></b>吃喝玩乐购</dt>
+						<dd>
+							<p>真正自由的旅行组合</p>
+						</dd>
+					</dl>
+					<dl>
+						<dt><b class="zfaq"></b>出境社资质</dt>
+						<dd>
+							<p>让您安心的出行保障</p>
+						</dd>
+					</dl>
+					<dl>
+						<dt><b class="bzcy"></b>最低价承诺</dt>
+						<dd>
+							<p>双倍差额的赔付承诺</p>
+						</dd>
+					</dl>
+					<dl>
+						<dt><b class="xctm"></b>退订有保障</dt>
+						<dd>
+							<p>人性化的退订体系</p>
+						</dd>
+					</dl>
+					<div class="clear"></div>
+				</div>
+				<input type="hidden" name="useremail" id="useremail" value="">
+				<input type="hidden" name="userphone" id="userphone" value="">
+				<!--产品详细信息-->
+				<div name="tour_content_warp" id="tour_content_warp">
+					<!--导航-->
+					<div class="tour-nav-wrap">
+						<ul class="tour-nav clearfix" style="position: static; top: auto;">
+
+							<li><a href="{dede:field.arcurl/}#tour_xcck" class="hover">详情内容<b></b></a>
+							</li>
+
+							<li><a href="{dede:field.arcurl/}#tour_syff">使用方法<b></b></a>
+							</li>
+
+							<li><a href="{dede:field.arcurl/}#tour_fysm">费用说明<b></b></a>
+							</li>
+
+							<li><a href="{dede:field.arcurl/}#tour_tggd">退改规定<b></b></a>
+							</li>
+
+							<li><a href="{dede:field.arcurl/}#tour_ydxz">预订流程<b></b></a>
+							</li>
+
+							<li><a href="{dede:field.arcurl/}#tour_zysx">注意事项<b></b></a>
+							</li>
+							<!--
+							<li id="tour_xg"><a href="{dede:field.arcurl/}#tour_zxtw">问题咨询<span id="zxNum" style="display:none"></span><b></b></a>
+							</li>
+							-->
+							<li><a href="{dede:field.arcurl/}#tour_xgcp">相关产品</a>
+							</li>
+						</ul>
+					</div>
+					<div class="tour-info">
+						{dede:field.route-info/}
+					</div>
+					<!--使用方法-->
+
+					{dede:field.order-info/}
+
+					<!--费用说明-->
+
+					{dede:field.cost-info/}
+
+
+					<!--退改规定-->
+
+					{dede:field.return-info/}
+
+					<!--预订流程-->
+					{dede:field.order-prc/}
+					
+
+					<!--注意事项 常见问题2-->
+  					{dede:field.qa-info/}
+					
+
+					<!--常见问题1-->
+
+					<!--旅行故事-->
+
+					<!-- 评价 -->
+					<div class="tour-evaluate" style="display:none" id="order_comment">
+
+					</div>
+					<!--问题咨询-->
+					<!--
+					<div id="tour_zxtw" class="tour-qa" style="">
+						<div class="content-title"><b></b><span class="title-big">问题咨询</span>
+						</div>
+						<div class="tour-box-content">
+							<div class="infos-qa">
+								<div class="empty-qa" style="">对产品有任何疑问，请使用<a href="javascript:TourDetailUtils.addQuestion();">在线提问</a>咨询，我们将第一时间进行答复。</div>
+							</div>
+						</div>
+					</div>
+					-->
+					<!--相关产品-->
+					<div class="tour-related">
+						<div class="content-title">
+							<div name="tour_xgcp" id="tour_xgcp" class="tour-maobiao"></div>
+							<b></b><span class="title-big">购买了该商品的用户还购买了</span>
+						</div>
+						<ul class="related-img clearfix">
+							{dede:likearticle row="3" titlelen="255"}
+							<li>
+								<a href="[field:arcurl/]" target="_blank">
+									<img class="lazy_img" src="" data-original="[field:litpic/]" width="365" height="250">
+									<div class="related-price">
+										<span>￥</span>152
+									</div>
+								</a>
+								<p><a href="[field:arcurl/]" target="_blank">[field:title/]</a>
+								</p>
+							</li>
+							{/dede:likearticle}	
+
+						</ul>
+					</div>
+
+				</div>
+
+				<!-- 提交的业务数据 -->
+				<form class="fm" action="/plus/travel2/saveorder.php" method="post">
+					<div id="hideMessage">
+						<input type="hidden" id="adult" name="adultEnd" value="">
+						<input type="hidden" id="children" name="childEnd" value="">
+						<input type="hidden" id="baby" name="babyEnd" value="">
+						<input type="hidden" id="older" name="olderEnd" value="">
+						<input type="hidden" id="visitor" name="visitorEnd" value="">
+						<input type="hidden" class="total_num" id="adult_num" name="adult_num" value="0">
+						<input type="hidden" class="total_num" id="child_num" name="child_num" value="0">
+						<input type="hidden" class="total_num" id="baby_num" name="baby_num" value="0">
+						<input type="hidden" class="total_num" id="older_num" name="old_num" value="0">
+						<input type="hidden" class="total_num" id="visitor_num" name="visitor_num" value="">
+						<input type="hidden" id="tour_id" name="tour_id" value="5080">
+						<input type="hidden" id="start_time" name="start_time" value="">
+						<input type="hidden" id="total_amt" name="total_amt" value="">
+						<input type="hidden" id="sku_id" name="sku_id" value="">
+						<input type="hidden" name="sys_trade_no" value="B20150517083832965127">
+						<input type="hidden" id="tour_status" value="1">
+					</div>
+				</form>
+				<form id="submit_middle" action="Login" method="post">
+					<input type="hidden" name="params" id="middle_page">
+				</form>
+				<!--tour的购买日期，数量等信息选择 end-->
+
+				<div class="clear"></div>
+
+				<div class="backToTop" style="display: none;">
+					<ul>
+						<li class="zxkfli" onclick="hz6d_is_exist(&#39;setIsinvited()%3Bwindow.open(#liyc#http%3A%2F%2Fwww15.53kf.com%2FwebCompany.php%3Farg%3D10096897%26style%3D1%26language%3Dzh-cn%26lytype%3D0%26charset%3DGBK%26kflist%3Doff%26kf%3D%26zdkf_type%3D1%26referer%3Dhttp%253A%252F%252F127.0.0.1%253A8080%252FtourDetail%252F69589.html%26keyword%3Dhttp%253A%252F%252F127.0.0.1%253A8080%252F%26tfrom%3D1%26tpl%3Dcrystal_blue#liyc#%2C%20#liyc#_blank#liyc#%2C%20#liyc#height%3D473%2Cwidth%3D703%2Ctop%3D200%2Cleft%3D200%2Cstatus%3Dyes%2Ctoolbar%3Dno%2Cmenubar%3Dno%2Cresizable%3Dyes%2Cscrollbars%3Dno%2Clocation%3Dno%2Ctitlebar%3Dno#liyc#)&#39;);">
+							<b><img src="{dede:global.cfg_templets_skin/}/style//tourbeta-float-img1-a.gif" alt=""></b>
+							<span>在线客服</span>
+							<!-- <div  class="zaixiankefu"><img width="130" src="/res/images/zxkfimg.jpg"></div> -->
+							<span class="zaixiankefu" style="display:none">
+				              <strong>在线客服时间</strong>
+				              <p>周一至周五<br>9:00-21:00<br>周六至周日<br>9:00-18:00</p>
+				              <div class="ponity"></div>
+				              <div class="ponity_shadow"></div>
+				            </span>
+						</li>
+						<li class="commom-left-khfw">
+							<a href="{dede:field.arcurl/}#tour_zxtw">
+								<b><img src="{dede:global.cfg_templets_skin/}/style//tourbeta-float-img2-a.png" alt=""></b>
+								<span>问题咨询</span>
+							</a>
+						</li>
+						<li>
+							<img src="{dede:global.cfg_templets_skin/}/style//wx_code.png" class="common-left-wxdy" width="70" alt="">
+							<p>微信订阅</p>
+						</li>
+						<li id="backToTop">
+							<b class="common-left-top"></b>
+							<span>回到顶部</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<!--日历弹层-->
+			<div id="calendar_box"">
+				<div class="pop_box">
+					<div class="pop_box_bd">
+						<div class="PopSubmit">
+							<div class="pop-date-box">
+								<div class="pop-top">全部出发日期</div>
+								<div class="calendar-box">
+									<div class="date-scroll">
+										<a href="javascript:;" class="prev" style="display:none;"></a>
+										<a href="javascript:;" class="next" style="display:none;"></a>
+									</div>
+									<form action="/plus/travel/orderaction.php" method="post" target="_blank" id="postView">
+										<input type="hidden" name="action" value="form">
+										<input type="hidden" name="routeid" value="{dede:field.id/}">
+										<input type="hidden" name="travel_date_id" id="travel_date_id">
+										<input type="hidden" name="startdate" id="select_date">
+										<input type="hidden" name="days" value="{dede:field.days /}">
+										
+										<div id="calendar_select"></div>
+									</form>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+			<div id="cboxOverlay" style="display: none;"></div>
+			<div id="colorbox" class="" role="dialog" tabindex="-1" style="display: none;">
+				<div id="cboxWrapper">
+					<div>
+						<div id="cboxTopLeft" style="float: left;"></div>
+						<div id="cboxTopCenter" style="float: left;"></div>
+						<div id="cboxTopRight" style="float: left;"></div>
+					</div>
+					<div style="clear: left;">
+						<div id="cboxMiddleLeft" style="float: left;"></div>
+						<div id="cboxContent" style="float: left;">
+							<div id="cboxTitle" style="float: left;"></div>
+							<div id="cboxCurrent" style="float: left;"></div>
+							<button type="button" id="cboxPrevious"></button>
+							<button type="button" id="cboxNext"></button>
+							<button id="cboxSlideshow"></button>
+							<div id="cboxLoadingOverlay" style="float: left;"></div>
+							<div id="cboxLoadingGraphic" style="float: left;"></div>
+							<button type="button" id="cboxClose"></button>
+						</div>
+						<div id="cboxMiddleRight" style="float: left;"></div>
+					</div>
+					<div style="clear: left;">
+						<div id="cboxBottomLeft" style="float: left;"></div>
+						<div id="cboxBottomCenter" style="float: left;"></div>
+						<div id="cboxBottomRight" style="float: left;"></div>
+					</div>
+				</div>
+				<div style="position: absolute; width: 9999px; visibility: hidden; display: none;"></div>
+			</div>
+			
+			<!--content end-->
+			<link href="{dede:global.cfg_templets_skin/}/style/ca.css" rel="stylesheet" type="text/css">
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/JSON3.min.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/responsiveslides.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/zebra_datepicker.src.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/layer.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/common.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.magnific-popup.min.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/blockUI.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.scrollstop.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/hwSelect.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.lazyload.min.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/tourdetail.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.colorbox-min.js"></script>
+			<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/vacation_view.js"></script>	
+			<script type="text/javascript">
+				var tourId = '{dede:field.id/}';
+				var imageHead = 'http://{dede:global.cfg_basehost/}';
+				var min_days_before_book = parseInt('3');
+				 //图片延迟加载
+				/**
+				 * 异步加载热门图片
+				 * @author tian
+				 */
+				var public = common_checkbrowse();
+				var showeffect = "";
+				if ((public['is'] == 'msie' && public['ver'] < 8.0)) { //根据浏览器版本来显示不同的滤镜效果
+					showeffect = "show";
+				} else {
+					showeffect = "fadeIn";
+				}
+				 //滚动停止加载
+				$("img.lazy_img").lazyload({
+					event: "scroll",
+					effect: showeffect
+				});
+				 //详情页，使用说明中嵌入图片显示
+				$(document).ready(function() {
+					var detImgs = {
+						"detImgIsEmpty": "1"
+					}; //详情页富文本中的图片
+					var obj = eval(detImgs);
+					if (obj.detImgIsEmpty != '1') { //使用新的图片表中内容
+						for (var key in obj) {
+							$("#" + key).attr("data_src", obj[key]);
+						}
+						$("img[data_src]").each(function(index) {
+							var url = $(this).attr("data_src");
+							$(this).attr("src", url);
+						});
+					} else {
+						$("img[data_src]").each(function(index) {
+							var url = $(this).attr("data_src");
+							$(this).attr("src", url);
+						});
+					}
+				});
+				var director = new Director(tourId);
+				director.initialize();
+			</script>
+
+			<!-- footer -->
+			{dede:include file="footer.htm"/}
+			<!-- footer end-->
+	</body>
+
+</html>

@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>{dede:global.cfg_webname/}</title>
+		<meta name="description" content="{dede:global.cfg_description/}" />
+		<meta name="keywords" content="{dede:global.cfg_keywords/}" />
+
+		<link href="{dede:global.cfg_templets_skin/}/style/base.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/home.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/nivo-slider.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/nivo-default.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/responsiveslides.css" rel="stylesheet" type="text/css">
+		<style type="text/css">
+			.middleTabLists {
+				display: none;
+			}
+			.continents {
+				display: block
+			}
+		</style>
+
+		<link type="text/css" rel="stylesheet" href="{dede:global.cfg_templets_skin/}/style/layer.css" id="skinlayercss">
+		<script src="{dede:global.cfg_templets_skin/}/style/bcore.min.js" type="text/javascript"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery-1.9.1.js"></script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<input type="hidden" id="isHomeBander" value="1">
+			<div id="hidden_area"></div>
+			<div id="hidden_theme"></div>
+			<!--nav begin-->
+			{dede:include filename="header.htm"/}
+			<!--nav end-->
+			<!-- home banner start   首页轮播部分-->
+
+			<div class="banner" style="overflow: hidden;">
+				<div id="wrapper">
+					<div class="homewrap-slider" style="position: relative;">
+						<ul class="rslides homewrap homewrap1" id="home-slider">
+
+							<li id="homewrap1_s0" >
+								<a href="#" style="background:url(http://img01.haiwaner.com/images/main_page/e96a4558-700f-4b71-bb1b-46d9ff14bafa.jpg) no-repeat center top;"></a>
+								<p class="caption"></p>
+							</li>
+
+							<li id="homewrap1_s1" >
+								<a href="#" style="background:url(http://img02.haiwaner.com/images/main_page/728b54f3-e9b6-42d9-bbf6-82970a3438c3.jpg) no-repeat center top;"></a>
+								<p class="caption"></p>
+							</li>
+
+						</ul>
+						<a href="#" class="homewrap_nav homewrap1_nav prev" u-behavior="banner_homewrapNavPrev" style="display: block;"></a>
+						<a href="#" class="homewrap_nav homewrap1_nav next" u-behavior="banner_homewrapNavNext" style="display: block;"></a>
+						<ul class="homewrap_tabs homewrap1_tabs">
+							<li class="homewrap1_s0" u-behavior="banner_homewrap1_s0"></li>
+							<li class="homewrap1_s1" u-behavior="banner_homewrap1_s1"></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- banner end -->
+
+			<!--content begin-->
+			<div class="content">
+				<div class="safeguard">
+					<div class="text" style="margin:60px 0 70px;">
+						<img src="{dede:global.cfg_templets_skin/}/style/safeguard-text.png">
+					</div>
+				</div>
+				
+				<script>
+					//处理 第一个显示
+					$(function(){
+						$(".middleTabCarousell .bt li:eq(0)").addClass("hover").append($("<div class='tab-arrow'></div>"));
+						$(".middleTabCarousell .middleTabLists:eq(0)").show();
+					})
+				</script>
+				
+				<div class="moban02 product" id="moban_top" name="moban_top" data-name="Top3">
+					
+					<!--这里修改 左侧 显示-->
+					{dede:channel typeid='2' type='this'}
+					<div class="title countryleft">
+						<div class="img">
+							<img src="[field:typeimg/]" width="295" height="655">
+						</div>
+						<div class="infos">
+							<div class="bg bgleft" style="display: none;">
+								<div class="bg-tint">
+									<b>[field:typename/]</b>
+
+								</div>
+								<div class="bg-dark">
+									<p>[field:description/]</p>
+									<a href="[field:typeurl/]" class="btn">够任性！猛戳！</a>
+								</div>
+							</div>
+						</div>
+					</div>
+					{/dede:channel}
+					
+					<!--右侧-->
+					<div class="text">
+						<div class="carousel middleTabCarousell">
+							<div class="bt">
+								<ul>
+									{dede:channel row='15' typeid='2' keywords='top3'}
+									<li data-index="[field:global name=autoindex /]">
+										<span>[field:typename/]</span>	
+									</li>
+									{/dede:channel}
+								</ul>
+
+								<div class="clear"></div>
+							</div>
+							<a class="carouselL"><b></b></a>
+							<a class="carouselR"><b></b></a>
+							<!-- 中间 -->
+							{dede:channelartlist row='15' type='son' typeid='2' keywords='top3'}
+							
+							<div class="lists middleTabLists" index="{dede:global name=itemindex runphp='yes'}@me=@me-1;{/dede:global}" style="display: none;">
+								<div style="min-height: 610px;">
+									{dede:arclist row='6' type="image" channelid="6" addfields="price" titlelen="255"}
+									<dl>
+										<dt><a href="[field:arcurl/]" target="_blank"><img class="lazy_img" src="[field:litpic/]" width="267" height="181" style="display: inline;"></a></dt>
+										<dd>
+											<a href="[field:arcurl/]" target="_blank" class="name">[field:title/]</a>
+										</dd>
+										<dd class="pricedd [field:id/]" id="[field:id/]" data-type="nodiv"><span class="discount">￥<em>[field:price/]</em></span>
+										</dd>
+	
+									</dl>
+									{/dede:arclist}
+								</div>
+								<div class="clear"></div>
+								<div class="line-bottom"></div>
+							</div>
+							{/dede:channelartlist}
+							<div class="clear"></div>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+				
+				<!--这里 赋值需要显示的栏目id-->
+				{dede:channelartlist typeid='55,58'}
+				<div class="moban01 product" id="moban{dede:field.typeid/}" name="moban{dede:field.typeid/}" data-name="{dede:field.typename/}">
+					<div class="title countryleft">
+
+						<div class="img">
+							<img class="lazy_img" src="{dede:field.typeimg/}" data-original="{dede:field.typeimg/}" width="295" height="655" style="display: inline;">
+						</div>
+						
+					</div>
+					<div class="text">
+						<div class="carousel carousellCentralDiv">
+							<div class="bt">在<span>{dede:field.typename/}</span>,99%游客会选择下面旅游产品</div>
+
+							<div class="rgtmore"><a href="/plus/travel2/search.php?typeid={dede:field.typeid/}">更多&gt;&gt;</a>
+							</div>
+							<div class="lists carousellCentralSection">
+								<a class="carouselL"><b></b></a>
+								<a class="carouselR"><b></b></a>
+								<div class="content_list">
+
+									{dede:arclist row='6' type="image" channelid="6" addfields="price" titlelen="255"}
+									<dl>
+										<dt><a href="[field:arcurl/]" target="_blank"><img class="lazy_img" src="[field:litpic/]" width="267" height="181" style="display: inline;"></a></dt>
+										<dd>
+											<a href="[field:arcurl/]" target="_blank" class="name">[field:title/]</a>
+										</dd>
+										<dd class="pricedd" data-type="nodiv"><span class="discount">￥<em>[field:price/]</em></span>
+										</dd>
+
+									</dl>
+									{/dede:arclist}
+
+								</div>
+								<div class="clear"></div>
+							</div>
+							<div class="clear"></div>
+						</div>
+
+						<div class="hotlist">
+
+							{dede:arclist row='3' type="image" flag="h" channelid="6" addfields="price" titlelen="255"}
+							<dl>
+								<dt><a href="[field:arcurl/]" target="_blank"><img class="lazy_img" src="[field:litpic/]" width="267" height="181" style="display: inline;"></a></dt>
+								<dd>
+									<a href="[field:arcurl/]" target="_blank" class="name">[field:title/]</a>
+								</dd>
+								<dd class="pricedd [field:id/]" id="[field:id/]" data-type="nodiv"><span class="discount">￥<em>[field:price/]</em></span>
+								</dd>
+
+							</dl>
+							{/dede:arclist}
+
+							<div class="clear"></div>
+						</div>
+
+					</div>
+					<div class="clear"></div>
+				</div>
+				{/dede:channelartlist}
+
+
+				<div class="backToTop" id="backToTop" style="position: fixed; bottom: 40px; display: none;">
+					<ul></ul>
+				</div>
+			</div>
+			<div class="footer">
+				<div class="c-wrapper">
+
+					<div class="media">
+						<!-- media reports -->
+						<div class="title"><span>旅游攻略</span>
+						</div>
+						<div class="text">
+							<div id="footer_media_content">
+								{dede:arclist row="7" typeid="155" orderby="pubdate" titlelen="100"}
+								<dl class='[field:global name="autoindex" runphp="yes"]@me = (@me==1)?"pager_cur":"";[/field:global]'>
+				                  <dt>
+				                  <div class="m-lft">
+				                      <img width=90 heigh=30 src="[field:litpic/]" />
+				                      <div class="time">[field:pubdate function='strftime("%Y-%m-%d,@me)'/]</div>
+				                  </div>
+				                  <div class="m-rgt">
+				                  	<p style="font-size:20px;margin-top:4px;">[field:title/]</p>
+				                  </div>
+				                  <div class="clear"></div>
+				                  </dt>
+				                  <dd>
+				                      <p>
+				                      	[field:description/] 
+				                      <a href="[field:arcurl/] " target="_blank" class="color_blue">查看全文</a></p>
+				                  </dd>
+				               </dl>
+				               {/dede:arclist}
+			               </div>
+			               <div class="pages">
+					          <a href="javascript:void(0)" target="_self" id="footer_page_prev" class="disabled">&lt;上一篇</a> <a href="javascript:void(0)" target="_self" id="footer_page_next">下一篇&gt;</a>
+					        </div>
+						</div>
+					</div>
+
+					<div class="theme">
+						<div class="title">
+							<span>最新行程</span>
+						</div>
+						<div class="text">
+							<ul>
+								{dede:artlist row="14" titlelen="14"}
+								<li><a target="_blank" href="[field:arcurl/]">[field:title/]</a>
+								</li>
+								{/dede:artlist}
+							</ul>
+						</div>
+					</div>
+
+					<div class="citys">
+						<div class="title"><span>热门目的地</span>
+						</div>
+						<div class="text">
+							<ul>
+								{dede:channelartlist keywords="hot"}
+								<li><a target="_blank" href="{dede:field.typeurl/}">{dede:field.typename/}</a></li>
+								{/dede:channelartlist}
+							</ul>
+						</div>
+					</div>
+					<div class="clear"></div>
+				</div>
+			</div>
+
+			{dede:include filename="footer.htm"/}
+		</div>
+
+		<div id="load_img" style="display:none"> &nbsp;
+			<img src="{dede:global.cfg_templets_skin/}/style/loading_0.gif">&nbsp;搜索中...&nbsp; </div>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.nivo.slider.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/common.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.lazyload.min.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/moment.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.scrollstop.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/blockUI.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/layer.js"></script>
+		<iframe allowtransparency="true" id="add_speed_bfd" frameborder="0" scrolling="no" style="height: 0px; width: 0px; float: none; position: absolute; overflow: hidden; z-index: 333333; margin: 0px; padding: 0px; border: 0px none; background-image: none; background-position: initial initial; background-repeat: initial initial;"></iframe>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/responsiveslides.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/home.js"></script>
+		<script>
+			$(".countryleft").mouseover(function() {
+				$(this).children(".infos").children(".bgleft").show();
+			});
+			$(".countryleft").mouseout(function() {
+				$(this).children(".infos").children(".bgleft").hide();
+			});
+		</script>
+
+	</body>
+
+</html>

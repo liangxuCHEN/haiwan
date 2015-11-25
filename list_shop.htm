@@ -1,0 +1,642 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+		<title>{dede:field.title/}_{dede:global.cfg_webname/}</title>
+		<meta name="keywords" content="{dede:field name='keywords'/}" />
+		<meta name="description" content="{dede:field name='description' function='html2text(@me)'/}" />
+
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery-1.9.1.js"></script>
+		<link href="{dede:global.cfg_templets_skin/}/style/base.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/bootstrap.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/searchbeta.css" rel="stylesheet" type="text/css">
+		<link href="{dede:global.cfg_templets_skin/}/style/jquery.nouislider.css" rel="stylesheet" type="text/css">
+		<script type="text/javascript" async="" charset="utf-8" src="{dede:global.cfg_templets_skin/}/style/haiwanwang.js"></script>
+		<link type="text/css" rel="stylesheet" href="{dede:global.cfg_templets_skin/}/style/layer.css" id="skinlayercss">
+		<script src="{dede:global.cfg_templets_skin/}/style/bcore.min.js" type="text/javascript"></script>
+	</head>
+
+	<body>
+		<div class="wrap">
+			<!--nav start-->
+			{dede:include file="header.htm"/}
+			<!--nav end-->
+			<!--content begin-->
+			<div class="content">
+				<div class="position">
+
+				</div>
+
+				<input type="hidden" name="" id="search_header_name" value="">
+				<input type="hidden" id="search_keyword" value="">
+				<!--select begin -->
+
+				<div class="filtrate">
+					<div class="city_theme">
+						<!--默认的时候不显示当前选择-->
+
+						<div class="current_select">
+							<div class="title">你已选择</div>
+							<div class="text">
+
+								<!-- <span>地点</span> -->
+								<div class="clear"></div>
+							</div>
+						</div>
+
+						<!--city Begin -->
+						<div class="select_city">
+			              <div class="title">目的地</div>
+			              
+			              <div class="text">
+			                <ul class="clearfix">
+			                  	{dede:channel type="son"}
+			                    <li><a href="javascript:void(0)" class="search_city_click" rel="[field:id/]">[field:typename/]</a></li>
+								{/dede:channel}
+			                </ul>
+			              </div>     
+			            </div>
+						<!--city End -->
+						<!--country-country begin -->
+
+						<!--country-country end -->
+						<!--theme Begin -->
+						<!--
+						<div class="select_theme">
+							<div class="title">产品类型</div>
+							<div class="theme_wrap text">
+								<ul class="clearfix" id="theme_content">
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="Food Activities">美食活动</a>
+									</li>
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="Shopping Coupon">优惠券</a>
+									</li>
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="Bus">观光巴士</a>
+									</li>
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="European Railway Tickets">欧铁</a>
+									</li>
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="Local Tour">境外参团</a>
+									</li>
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="Passport">签证</a>
+									</li>
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="Activities">特色活动</a>
+									</li>
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="Half-day Tours">半日游</a>
+									</li>
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="City Pass">城市通票</a>
+									</li>
+
+									<li><a href="javascript:void(0)" class="search_theme_click" rel="Attractions">景点门票</a>
+									</li>
+
+								</ul>
+							</div>
+						</div>
+						-->
+						<!--theme End -->
+						<!--label Begin -->
+
+						<!--label End -->
+					</div>
+
+					<!-- 条件选择隐藏域-->
+					<input id="cityName" type="hidden" value="Rome">
+					<input id="themeEname" type="hidden" value="AllThemes">
+					<input id="labelName" type="hidden" value="AllLabel">
+					<!--time begin-->
+					<div class="time">
+						<div class="title">时间</div>
+						<div class="text">
+							<span class="in">
+            <input class="start_date" id="start_date" type="text" value="" readonly="readonly">
+          </span>
+							<span style="padding:0px 6px;">至</span>
+							<span class="out">
+         	  <input class="end_date" id="end_date" type="text" value="" readonly="readonly">
+          </span>
+							<input type="button" value="确定" class="searchUpdateT" id="searchTime" u-behavior="search_searchTime">
+						</div>
+					</div>
+					<!--time end-->
+
+					<!--duration begin-->
+
+					<div class="duration" id="ywsj" style="display:none">
+
+						<div class="title">游玩时间</div>
+						<div class="text">
+							<input type="hidden" id="duration" value="">
+							<ul>
+								<li>
+									<input type="checkbox" name="duration" value="A"> 4小时
+								</li>
+								<li>
+									<input type="checkbox" name="duration" value="B"> 1天
+								</li>
+								<li>
+									<input type="checkbox" name="duration" value="C"> 2-3天
+								</li>
+								<li>
+									<input type="checkbox" name="duration" value="D"> 4-7天
+								</li>
+								<li>
+									<input type="checkbox" name="duration" value="E"> 8天以上
+								</li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+					</div>
+
+					<!--duration end-->
+					<!--language begin-->
+					<input type="hidden" id="langua" value="">
+					<!--
+					<div class="language" id="fwyy" style="display:none">
+
+						<div class="title">服务语言</div>
+						<div class="text">
+							<input type="hidden" id="langua" value="">
+							<ul>
+								<li>
+									<input type="checkbox" name="lang" value="mandarin">
+									<img src="{dede:global.cfg_templets_skin/}/style/zh.jpg" alt=""> 普通话</li>
+								<li>
+									<input type="checkbox" name="lang" value="cantonese">
+									<img src="{dede:global.cfg_templets_skin/}/style/zh.jpg" alt=""> 粤语</li>
+								<li>
+									<input type="checkbox" name="lang" value="english">
+									<img src="{dede:global.cfg_templets_skin/}/style/en.jpg" alt=""> 英语</li>
+								<li>
+									<input type="checkbox" name="lang" value="japanese">
+									<img src="{dede:global.cfg_templets_skin/}/style/ja.jpg" alt=""> 日语</li>
+								<li>
+									<input type="checkbox" name="lang" value="french">
+									<img src="{dede:global.cfg_templets_skin/}/style/fr.jpg" alt=""> 法语</li>
+								<li>
+									<input type="checkbox" name="lang" value="korean">
+									<img src="{dede:global.cfg_templets_skin/}/style/ko.jpg" alt=""> 韩语</li>
+								<li>
+									<input type="checkbox" name="lang" value="russian">
+									<img src="{dede:global.cfg_templets_skin/}/style/ru.jpg" alt=""> 俄语</li>
+							</ul>
+							<div class="clear"></div>
+						</div>
+					</div>
+					-->
+					<!--language end-->
+
+					<!-- 针对新加坡添加的  -->
+
+					<div class="filtrate-more">
+						<a id="showAll" style="cursor: pointer" u-behavior="search_showAll">
+							<img class="more" src="{dede:global.cfg_templets_skin/}/style/more.png">
+							<img class="more2" src="{dede:global.cfg_templets_skin/}/style/more2.png" style="display: none;">
+						</a>
+					</div>
+				</div>
+
+				<!--select end-->
+
+				<div class="filtrate-content">
+					<!--search list begin -->
+
+					<div class="filtrate-imglist">
+
+						<div class="search_jg">
+							<b>排序</b>
+							<input type="hidden" id="orderType" value="allOrderByConditions">
+							<a id="sortdefault" href="javascript:sort_by_default();" title="默认" class="arrange" u-behavior="search_sortdefault">默认</a>
+							<a id="sortduration" href="javascript:sort_by_duration();" class="arrange" title="由短到长" u-behavior="search_sortduration">时间</a>
+							<a id="sortprice" href="javascript:sort_by_price();" title="由小到大" class="arrange" u-behavior="search_sortprice">价格</a>
+							<span class="pricerange">
+								<input type="hidden" id="maxPrice" value="">
+								<input type="hidden" id="minPrice" value="">
+								价格区间<input type="text" value="0" class="inprice" id="lowPrice">
+								-<input type="text" class="inprice" value="280000" id="highPrice">
+								<input type="button" value="确定" class="btn" id="searchPrice" u-behavior="search_searchPrice">
+							</span>
+							
+							<div class="page_top">
+
+								<span>1/3</span>
+
+							</div>
+							<div class="clear"></div>
+							<div class="clear"></div>
+						</div>
+
+						<input type="hidden" id="bfd_search_res" value="1">
+						<!--loop begin-->
+						{dede:list pagesize="12"}
+						<div class="product">
+							<a href="[field:arcurl/]" target="_blank" class="ahref">
+								<div class="img">
+									<ul>
+
+										<li>
+											<img class="lazy_img" src="[field:litpic/]" data-original="[field:litpic/]">
+										</li>
+
+									</ul>
+								</div>
+								<div class="intro" style="display:none;">
+									<b></b>
+									<div class="desc">
+										[field:description function='cn_substr(@me,80)'/]... 
+										<b class="last"></b>
+									</div>
+								</div>
+							</a>
+
+							<div class="name">
+								<a target="_blank" href="[field:arcurl/]">[field:title/]</a>
+							</div>
+							<div class="price">
+								<div class="btn new_price">
+									<div class="floatL unit_price">
+										<em>¥</em><span>[field:price/]</span>
+									</div>
+									<!--
+									<div class="floatL md">
+										<div class="discount">9折</div>
+										<div class="market"><s>￥[field:price/]</s>
+										</div>
+									</div>
+									-->
+									<div class="floatR btn">
+										<a href="[field:arcurl/]" target="_blank">立即预订</a>
+									</div>
+
+									<div class="clear"></div>
+								</div>
+							</div>
+						</div>
+						{/dede:list}
+						
+
+						<!--loop end-->
+						<div class="clear"></div>
+
+						<!--page begin-->
+
+						<div class="page">
+
+						 {dede:pagelist listitem="index,end,pre,next,pageno" listsize="5"/}
+
+						</div>
+
+						<!--page end-->
+					</div>
+
+					<!--seare list end -->
+					<!-- right begin -->
+					<div class="searchrgt">
+						<!-- 热门项目 begin  -->
+
+						<!-- 相关推荐 begin  -->
+
+						<div class="hotlists">
+							<div class="rtitle">热门推荐</div>
+							 {dede:arclist flag='c' titlelen=42 row=10}
+							<dl>
+								<dt>
+	                				<a target="_blank" href="[field:arcurl/]">
+						                <img class="lazy_img" src="[field:litpic/]">
+						            </a>
+	             				</dt>
+								<dd>
+									<a target="_blank" href="http://www.haiwan.com/tourDetail/21196.html">
+										[field:title function='cn_substr(@me,80)'/]
+									</a>
+									<div class="hotprice">￥<b>[field:price/]</b>
+									</div>
+								</dd>
+							</dl>
+							{/dede:arclist}
+							
+
+						</div>
+
+						<!-- 相关推荐 end -->
+
+					</div>
+
+					<!-- right end -->
+					<div class="clear"></div>
+				</div>
+				<div class="clear"></div>
+			</div>
+			<!--content end-->
+			<div class="backToTop" id="backToTop" style="display:none"></div>
+			<script type="text/javascript">
+				(function() {
+					var allCountry = eval([{
+							"chinese_name": "欧洲",
+							"countryList": [{
+								"chinese_name": "意大利",
+								"cityList": [{
+									"chinese_name": "罗马",
+									"english_name": "Rome",
+									"id": 48,
+									"menusort": 0,
+									"parent_id": 41,
+									"seq": 0,
+									"status": 0,
+									"type": 3
+								}],
+								"english_name": "Italy",
+								"menusort": 0,
+								"parent_id": 2
+							}],
+							"english_name": "Europe",
+							"parent_id": 0
+						}]),
+						//左边标题里的洲
+						continents = [],
+						//右边洲对应的国家
+						countries = [];
+					if (allCountry) {
+						var firstCur = 0;
+						for (var k = 0; k < allCountry.length; k++) {
+							var lengthK = allCountry[k].countryList.length;
+							if (lengthK > 0) {
+								firstCur = k;
+								break;
+							}
+						}
+						for (var i = 0, len = allCountry.length; i < len; i++) {
+							var continent = allCountry[i],
+								cunLen = continent.countryList.length;
+							if (cunLen > 0) {
+								continents.push('<li ' + (i == firstCur ? 'class="country_cur"' : '') + '>' + continent.chinese_name +
+									'</li>');
+								var cunHtml = ['<div ' + (i == firstCur ? 'class="country_content_cur"' : '') + '><ul class="clearfix">'];
+								for (var j = 0; j < cunLen; j++) {
+									var country = continent.countryList[j];
+									cunHtml.push('<li><a href="javascript:void(0)" class="search_country_click" rel="' + country.english_name + '">' + country.chinese_name + '</a></li>')
+								}
+								cunHtml.push('</ul></div>');
+								countries.push(cunHtml.join(""));
+							}
+						}
+						var $title = $("#country_tab_title"),
+							$right = $(".cur_right"),
+							titleHeight = 0;
+						$title.append(continents.join(""));
+						titleHeight = $("#country_tab_title").height() > 66 ? $("#country_tab_title").height() : 66;
+						// $right.css("height",titleHeight);
+						$right.append(countries.join(""));
+						$right.children().each(function() {
+							if ($(this).height() > titleHeight) {
+								$(this).addClass("scroll");
+							}
+							//  $(this).css("height",titleHeight);
+						});
+					}
+				})();
+			</script>
+
+			<!--footer begin-->
+			
+			{dede:include file="footer.htm"/}
+			
+			<!--footer end-->
+		</div>
+		<div id="load_img" style="display:none">
+		<img src="{dede:global.cfg_templets_skin/}/style/xubox_loading2.gif">&nbsp;搜索中...&nbsp; </div>
+
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/JSON3.min.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/unslider.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/common.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/searchbeta.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/zebra_datepicker.src.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.nouislider.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/layer.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.scrollstop.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/jquery.lazyload.min.js"></script>
+		<script type="text/javascript" src="{dede:global.cfg_templets_skin/}/style/blockUI.js"></script>
+		<!--百分点代码 -->
+		<script type="text/javascript">
+			console.log($("#bfd_search_res").val());
+			window["_BFD"] = window["_BFD"] || {};
+			var data = {
+				"category": [
+					["意大利", "http://www.haiwan.com/search/Rome_AllThemes.html?keyword="],
+					["罗马", "http://www.haiwan.com/search/Rome_AllThemes.html?keyword="]
+				],
+				"pageType": 3
+			};
+			if ('1' == data.pageType) {
+				_BFD.BFD_INFO = {
+					"search_word": data.search_word, //搜索词
+					"search_result": $("#bfd_search_res").val(), //搜索有无结果，1表示有结果，0表示无结果
+					"user_id": getCookieByName("hwuserid"), //网站当前用户id，如果未登录就为0或空字符串
+					"page_type": "search" //当前页面全称，请勿修改
+				};
+			}
+			if ('2' == data.pageType) {
+				_BFD.BFD_INFO = {
+					"channel_name": data.channel_name, //频道名称，如http://www.haiwan.com/search/AllCitys_Shows.html
+					"user_id": getCookieByName("hwuserid"), //网站当前用户id，如果未登录就为0或空字符串
+					"page_type": "channel" //当前页面全称，请勿修改
+				};
+			}
+			if ('3' == data.pageType) {
+				_BFD.BFD_INFO = {
+					"category": data.category, //商品的类别详细信息，第一个元素为类别名称，第二个元素为类别地址，2维数组;类别从大到小，数组最后一项为商品当前属类别，只传目的地
+					"user_id": getCookieByName("hwuserid"), //网站当前用户id，如果未登录就为0或空字符串
+					"page_type": "list" //当前页面全称，请勿修改
+				};
+			}
+		</script>
+
+		<div class="Zebra_DatePicker" style="left: -1000px; display: none;">
+			<table class="dp_header" style="width: 210px;">
+				<tbody>
+					<tr>
+						<td class="dp_previous dp_blocked">«</td>
+						<td class="dp_caption">undefined年 undefined</td>
+						<td class="dp_next dp_blocked">»</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="dp_daypicker">
+				<tbody>
+					<tr>
+						<th>一</th>
+						<th>二</th>
+						<th>三</th>
+						<th>四</th>
+						<th>五</th>
+						<th>六</th>
+						<th>日</th>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="dp_monthpicker" style="width: 210px; height: 217px; display: none;"></table>
+			<table class="dp_yearpicker" style="width: 210px; height: 217px; display: none;"></table>
+			<table class="dp_footer" style="width: 210px;">
+				<tbody>
+					<tr>
+						<td class="dp_today" style="width: 100%;">今日</td>
+						<td class="dp_clear" style="width: 50%; display: none;">清除</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<div class="Zebra_DatePicker" style="left: -1000px; display: none;">
+			<table class="dp_header" style="width: 210px;">
+				<tbody>
+					<tr>
+						<td class="dp_previous dp_blocked">«</td>
+						<td class="dp_caption">undefined年 undefined</td>
+						<td class="dp_next dp_blocked">»</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="dp_daypicker">
+				<tbody>
+					<tr>
+						<th>一</th>
+						<th>二</th>
+						<th>三</th>
+						<th>四</th>
+						<th>五</th>
+						<th>六</th>
+						<th>日</th>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+					<tr>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td>NaN</td>
+						<td class="dp_weekend">NaN</td>
+						<td class="dp_weekend">NaN</td>
+					</tr>
+				</tbody>
+			</table>
+			<table class="dp_monthpicker" style="width: 210px; height: 217px; display: none;"></table>
+			<table class="dp_yearpicker" style="width: 210px; height: 217px; display: none;"></table>
+			<table class="dp_footer" style="width: 210px; display: none;">
+				<tbody>
+					<tr>
+						<td class="dp_today" style="width:50%">false</td>
+						<td class="dp_clear" style="display: none;">清除</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<iframe allowtransparency="true" id="add_speed_bfd" frameborder="0" scrolling="no" style="height: 0px; width: 0px; float: none; position: absolute; overflow: hidden; z-index: 333333; margin: 0px; padding: 0px; border: 0px none; background: none;"></iframe>
+	</body>
+
+</html>

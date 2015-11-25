@@ -1,0 +1,2018 @@
+@charset "utf-8";
+/* CSS Document */
+.content {
+	width: 1200px;
+	margin: auto;
+	margin-top: 20px;
+}
+.position {
+	margin: 10px 0;
+	font-size: 14px;
+}
+.buy-grey {
+    color: #7a7777;
+}
+.buy_black {
+    color: #333333;
+}
+.tour_show,
+.tour-six-security,
+.tour-info,
+.tour-related,
+.tour-qa,
+.tour-evaluate,
+.order-info,
+.cost-info,
+.return-info{
+  background: #fff;
+  box-shadow: 0px 1px 3px #ddd;
+  border: 1px solid #d5d5d5;
+  margin-bottom: 15px;
+  padding: 20px 30px 30px 30px;
+  font-size: 14px;
+}
+.float-left {
+  float: left;
+}
+.line-through {
+  text-decoration: line-through;
+}
+
+/*---------标题-----------*/
+.tour-title {
+  margin-bottom: 10px;
+}
+.tour-title h3 {
+  line-height: 28px;
+  font-weight: normal;
+  font-size: 28px;
+  float: left;
+}
+.tour-title ul {
+  float: left;
+  margin-top:5px;
+  margin-left: 5px;
+}
+
+.tour-title ul li {
+  float: left;
+  border: 1px solid #e10979;
+  height: 21px;
+}
+.tour-title li.confirm-img,
+.show-right .price-unit,
+.price-unit .price-discount,
+.tour-nav li a b,
+.tour-nav li a:hover,
+.tour-nav li a.hover,
+.plane-info .plane-img b,
+.route-info .route-step li b{
+  background: url("tour_common.png?1") no-repeat;
+}
+.plane-info .plane-img b,
+.route-info .route-step li b,{
+  background: url("tourbeta_icon.png") no-repeat;
+}
+.tour-title li.confirm-img {
+  width: 25px;
+  background-position: -338px 0;
+  background-color: #e10979;
+}
+
+.tour-title li.confirm-note {
+  padding: 0 5px;
+  color: #626262;
+  font-size: 15px;
+}
+.tour-title-sec {
+  margin-top: 10px;
+  margin-bottom: 3px;
+  font-size: 15px;
+}
+.tour-title-sec .title-sec-word {
+  float: left;
+  width: 690px;
+  height: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ /*  font-size: 18px;
+  color: #2fadc4; */
+  font-size: 16px;
+	color: #6C6C6B;
+}
+.tour-title-sec  .price-note {
+  float: right;
+  position: relative;
+  margin-left: 15px;
+}
+.tour-title-sec  .price-note b{
+  background: url("tourbeta_icon.png") no-repeat;
+  background-position: -80px -25px;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  bottom: 0;
+}
+.tour-title-sec .price-note#erciqueren b{
+  background-position: -80px 0px;
+}
+
+.tour-title-sec  .price-note span {
+  font-size: 12px;
+  color: #959595;
+  padding-left: 23px;
+}
+/*end---------标题------------*/
+
+/*---------左侧-----------*/
+.tour_show .show-left {
+  float: left;
+  width: 690px;
+  margin-right: 28px;
+}
+
+.show-left .tour-share {
+  margin-top: 20px;
+}
+
+.show-left .tour-share a {
+  background: url("/res/images/share.png") no-repeat;
+  width: 23px;
+  height: 23px;
+  margin-right: 3px;
+}
+.show-left .tour-share .share-title {
+  color: #666666;
+  float: left;
+}
+.show-left .tour-share  a {
+  float: left;
+  display: block;
+  width: 23px;
+  height: 23px;
+}
+.show-left .tour-share a.tsina {
+  background-position: -6px -5px;
+}
+.show-left .tour-share a.tsina:hover {
+  background-position: -6px -35px;
+}
+.show-left .tour-share a.weixin {
+  background-position: -77px -5px;
+}
+.show-left .tour-share a.weixin:hover {
+  background-position: -77px -35px;
+}
+.show-left .tour-share a.douban {
+  background-position: -140px -5px;
+}
+.show-left .tour-share a.douban:hover {
+  background-position: -140px -35px;
+}
+.show-left .tour-share a.tqq {
+  background-position: -41px -5px;
+}
+.show-left .tour-share a.tqq:hover {
+  background-position: -41px -35px;
+}
+.show-left .tour-share a.qzone {
+  background-position: -112px -5px;
+}
+.show-left .tour-share a.qzone:hover {
+  background-position: -112px -35px;
+}
+.show-left .tour-share a.tianya {
+  background-position: -165px -5px;
+}
+.show-left .tour-share a.tianya:hover {
+  background-position: -165px -35px;
+}
+
+.show-left .info {
+    margin-top: 20px;
+    line-height:24px;
+}
+.show-left .info .left-comma {
+    margin-top: -7px;
+}
+.show-left .info .right-comma {
+    margin-top: 1px;
+}
+.show-left .info p {
+    line-height: 28px;
+    padding-right: 10px;
+}
+.show-right .info-bz{
+  margin-top:20px;
+}
+.show-right .info-bz ul li {
+    line-height: 28px;
+    display: inline;
+    padding-right: 14px;
+}
+
+/*Begin --- 左侧轮播 ----------*/
+#tour-slider li img {
+  width: 690px;
+  height: 294px;
+}
+.tourSlider {
+  width: 690px;
+  height: 294px;
+}
+.tourSlider_tabs {
+  padding-top: 14px;
+  z-index:4;
+  overflow: hidden;
+  margin-left: -10px;
+}
+.tourSlider_tabs li {
+  width: 126px;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+  opacity: .6;
+  filter: alpha(opacity = 60);
+  margin-left: 10px;
+  cursor: pointer;
+  border: 2px solid #ffffff;
+  position: relative;
+}
+.tourSlider_tabs li:hover,
+.tourSlider_tabs .tourSlider_here {
+  filter: alpha(opacity = 100);
+  opacity: 1;
+  border-color: #e10979;
+}
+.tourSlider_tabs li .ctrl_wrap {
+  width: 126px;
+  overflow: hidden;
+  height: 77px;
+}
+#tour-slider li .caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width:670px;
+  background-color: #333;
+  background-color: rgba(0, 0, 0, 0.4);
+  filter: alpha(opacity = 40);
+  color:#fff;
+  padding:5px 10px;
+}
+#tour-slider li .caption:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  filter: alpha(opacity = 60);
+}
+#tour-slider li .caption h2{
+  font-size:16px;
+  font-weight:normal;
+  margin-bottom: 2px;
+}
+#tour-slider li .caption p{
+  font-size:12px;
+  line-height:26px;
+}
+.show-left .tourSlider_here .ponity_shadow,
+.show-left .tourSlider_tabs  li:hover .ponity_shadow{
+  position: absolute;
+  border: 6px solid;
+  border-color: transparent transparent #e10979 transparent;
+  border-style: dashed dashed solid dashed;
+  width: 0;
+  height: 0;
+  left: 55%;
+  top: -14px;
+  margin-left: -9px;
+  overflow: hidden;
+}
+/*End---左侧轮播-----------*/
+
+/*end-----------左侧--------------*/
+
+/*begin---------右侧-----------*/
+.show-right {
+  float: left;
+  width: 420px;
+  font-family: "微软雅黑";
+}
+.show-right .price-unit {
+  height: 91px;
+  width: 462px;
+  background-position: -6px -49px;
+}
+.tips_contentqjsm,
+.tips_erciqueren{
+  position: absolute;
+  width: 230px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	padding: 8px 15px !important;
+	font-size: 12px;
+	line-height: 16px;
+	color: #666;
+	top: 28px;
+	right:-10px;
+	display: none;
+	z-index: 99;
+}
+.tips_contentqjsm .ponity,
+.tips_contentqjsm .ponity_shadow,
+.tips_erciqueren .ponity,
+.tips_erciqueren .ponity_shadow{
+	position: absolute;
+	border: 7px solid;
+	border-color: transparent transparent #fff transparent;
+	border-style: dashed  dashed dashed solid;
+	width: 0;
+	height: 0;
+	top: 0;
+	margin-top: -12px;
+	right: 63px;
+	overflow: hidden;
+}
+.tips_erciqueren .ponity,
+.tips_erciqueren .ponity_shadow{
+  right: 107px;
+}
+.tips_contentqjsm .ponity{
+	border-bottom-color: #ccc;
+	top: -2px;
+  right: 62px;
+}
+.tips_erciqueren .ponity{
+  border-bottom-color: #ccc;
+  top: -2px;
+  right: 106px;
+}
+.tips_contentqjsm .ponity_shadow,
+.tips_erciqueren .ponity_shadow{
+	border-width: 6px;
+	margin-left: -2px;
+}
+.price-unit .price-cur-wrap{
+  margin-top: 13px;
+  margin-left: 30px;
+  color:#fff;
+  font-family: arial,Verdana,Geneva,Helvetica,"Microsoft YaHei",Simsun;
+}
+.price-unit .price-cur {
+  font-size: 52px;
+  color: #fff;
+  line-height: 52px;
+  font-weight: bold;
+}
+.price-unit .price-cur em {
+  font-style: normal;
+  font-size: 28px;
+}
+.price-unit .price-qi {
+  color: #fff;
+  margin-left: 5px;
+}
+.price-unit .price-discount {
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  display: block;
+  float: right;
+  margin-top:-6px;
+  padding:6px 4px 3px 9px;
+  background-position: -265px -10px;
+  margin-left: 18px;
+  color: #e10979;
+  font-size: 18px;
+  text-align: center;
+}
+.price-unit .price-market {
+  color: #dcdcdc;
+  font-size: 12px;
+  margin-top: 31px;
+  margin-left: 10px;
+}
+.price-unit .price-market em {
+  font-style: normal;
+;
+}
+.price-unit .price-market .line-through {
+  font-size: 14px;
+}
+
+.show-right .tour-type {
+  margin-top:5px;
+/*   margin-bottom: 5px; */
+}
+.tour-type li {
+  float: left;
+  width: 50%;
+  margin-bottom: 5px;
+  height: 20px;
+}
+
+/*begin---------------sku-------------*/
+.tour-buy .buy-detail {
+  padding: 10px 0px;
+  border-top:1px dotted #dbdbdb;
+  border-bottom:1px dotted #dbdbdb;
+  margin-top: 20px;
+}
+.buy-detail .buy-detail-error {
+  font-size: 12px;
+  padding: 2px 5px;
+  display: inline-block;
+  position: absolute;
+  top: -10px;
+  background-color: #e10979;
+  color: #fff;
+}
+.tour-buy .buy-detail th {
+  font-weight: normal;
+  float: right;
+  width: 60px;
+  padding-right: 10px;
+  color: #333333;
+  padding-top:4px;
+}
+.tour-buy .buy-detail td,
+.tour-buy .buy-detail td li{
+  padding-bottom: 8px;
+}
+.tour-buy .buy-detail td {
+  width: 300px;
+}
+.tour-buy .buy-detail td input.buy_date {
+  border: 1px solid #cccccc;
+  height: 25px;
+  background: url("/res/images/date_select.gif") #ffffff no-repeat 275px 8px;
+  padding: 2px 20px 2px 10px;
+  width: 270px;
+  font-family: "微软雅黑";
+}
+.tour-buy .buy-detail #skuSelectMsg {
+  display: none;
+}
+.tour-buy .tab{
+  margin-top: 20px;
+  border-top:1px dotted #ddd;
+  border-bottom:1px dotted #ddd;
+  padding: 18px 0;
+}
+.tour-buy .tab li span{
+  padding: 0px 5px;
+}
+.tour-buy .tab.rq{
+  margin-top: 0px;
+  border-top:none;
+}
+.tour-buy .tab.rq li{
+  color:#bbb;
+}
+.tour-buy .tab.rq li span{
+  color:#333;
+}
+.tour-buy .tips{
+  text-align: center;
+  color:#bbb;
+  margin-top: 40px;
+}
+.tour-buy .buy-price b
+{
+  font-size: 30px;
+}
+.tour-buy .buy-zk{
+  background: #fff;
+  border-radius: 4px;
+  padding: 2px;
+  color:#fa139b;
+  font-size: 20px;
+  margin-left: 10px;
+}
+.buy-detail table {
+  margin-bottom: -18px;
+}
+.buy-detail #buy_select_num li .num_price {
+  padding-left: 5px;
+  padding-top: 5px;
+  font-size: 12px;
+  float: left;
+  position: relative;
+}
+.buy-detail #buy_select_num li .num_price .tips_content {
+  position: absolute;
+  width: 88px;
+  border: 1px solid #cccccc;
+  background-color: #ffffff;
+  padding: 7px;
+  margin-left: 7px;
+  font-size: 12px;
+  line-height: 16px;
+  color: #666;
+  top: 0;
+  display: none;
+}
+.buy-detail #buy_select_num li .num_price .type_tips {
+  background: url("/res/images/child_tip.png") no-repeat -1px -3px;
+  width: 20px;
+  height: 18px;
+  display: inline-block;
+  margin-bottom: -5px;
+  cursor: pointer;
+}
+#buy_select_num li .num_price .tips_content .ponity_shadow,
+#buy_select_num li .num_price .tips_content .ponity {
+  position: absolute;
+  border: 7px solid;
+  border-color: transparent #fff transparent transparent;
+  border-style: dashed dashed solid dashed;
+  width: 0;
+  height: 0;
+  left: -10px;
+  top: 20%;
+  margin-left: -10px;
+  overflow: hidden;
+}
+#buy_select_num li .num_price .tips_content .ponity_shadow {
+  border-width: 6px;
+  margin-left: -2px;
+}
+#buy_select_num li .num_price .tips_content .ponity {
+  border-right-color: #ccc;
+  top: 17%;
+  margin-left: -5px;
+}
+.buy-detail #buy_select_num li .num_price .type_tips:hover {
+  background-position: -23px -3px;
+}
+/*end---------------sku--------------------*/
+
+.tour-buy .buy-total {
+  font-size: 16px;
+  text-align: center;
+  margin: 20px 0;
+}
+.buy-total .total-money {
+  font-size: 36px;
+  color: #fa128a;
+  font-weight: bold;
+  margin-left: 10px;
+}
+.buy-total .total-money em {
+  font-style: normal;
+  font-size: 28px;
+  margin-right: 5px;
+}
+.total-money-leave {
+  margin-left: 10px;
+}
+.total-money-leave em {
+  margin: 0 3px 0 5px;
+}
+.tour-buy .btn {
+  margin-top: 5px;
+  text-align: center;
+}
+.tour-buy .btn #submbuy,.tour-buy .btn .submit{
+  background-color:#fa139b;
+  color:#FFFFFF;
+  font-size:30px;
+  width: 320px;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 6px;
+  display: block;
+  cursor: pointer;
+  margin:auto;
+}
+.tour-buy .btn #submbuy:hover,.tour-buy .btn .submit:hover {
+  background-color:#ff63b1;
+  /*background-position: -5px -69px;*/
+}
+.tour-buy .no_product {
+  margin-top: 20px;
+}
+.tour-buy .no_product p {
+  margin-top:5px;
+}
+.tour-buy .no_product .btn {
+  margin-top:35px;
+  text-align: center;
+}
+.tour-buy .buy_tips {
+  margin-top: 20px;
+  font-size: 12px;
+}
+/*end-----------右侧-----------*/
+
+/*begin--------------六重保障------------*/
+.tour-six-security {
+  margin-bottom: 15px;
+  padding-left: 40px;
+  padding-right: 0;
+  padding-top:40px;
+}
+.tour-six-security dl {
+  float: left;
+  margin-right: 76px;
+}
+.tour-six-security dt{
+  font-weight: bold;
+  color: #626262;
+  font-size: 14px;
+  position: relative;
+  padding-left: 45px;
+  font-size: 16px;
+}
+.tour-six-security dt b {
+  width: 40px;
+  height: 40px;
+  position: absolute;
+  left: 0;
+  top: 0px;
+  background: url("security_six2.png") no-repeat;
+}
+.tour-six-security dt b.djcn {
+  background-position: 0px 0;
+}
+.tour-six-security dt b.tdbz {
+  background-position: -41px 0;
+}
+.tour-six-security dt b.zfaq {
+  background-position: -82px 0;
+}
+.tour-six-security dt b.bzcy {
+  background-position: -123px 0;
+}
+.tour-six-security dt b.xctm {
+  background-position: -164px 0;
+}
+.tour-six-security dd {
+  font-size: 12px;
+  color: #7d7d7d;
+  padding-left: 45px;
+}
+/*end--------------六重保障------------*/
+
+/*begin----------详细信息-------------*/
+#tour_content_warp {
+  position: relative;
+  line-height: 24px;
+}
+.tour-nav-wrap {
+  width: 1200px;
+  height: 54px;
+  position: absolute;
+  top: 0;
+}
+/*ie7*/
+.tour-nav-wrap {
++position: static;
+}
+.tour-nav {
+  width: 1198px;
+  border:  1px solid #d5d5d5;
+  border-top-width: 3px;
+  border-top-color: #e10979;
+  box-shadow: 1px 3px 4px -2px rgba(34, 25, 25, 0.2);
+  background-color: #fcfcfc;
+  z-index: 999;
+}
+
+.tour-nav li {
+  float: left;
+}
+.tour-nav li a {
+  color: #333333;
+  display: block;
+  padding: 15px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  position: relative;
+}
+.tour-nav li:first-child a {
+  padding-left: 40px;
+}
+.tour-nav li a.hover,
+.tour-nav li a:hover{
+  background-position: -5px -52px;
+  color: #fff;
+}
+.tour-nav li a b {
+  width: 1px;
+  height: 50px;
+  background-position: -478px -52px;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.tour-info {
+  padding-top:75px;
+}
+.content-title{
+  position: relative;
+  padding-left: 50px;
+  margin-top:10px;
+  padding-bottom: 5px;
+}
+.content-title .tour-maobiao {
+  position: absolute;
+  top:-54px;
+}
+
+.content-title .title-big{
+  font-size: 22px;
+  line-height: 45px;
+}
+.content-title .title-small {
+  color: #7d7d7d;
+  margin-left: 10px;
+}
+.content-title b{
+  width: 45px;
+  height: 45px;
+  position: absolute;
+  left: 0;
+  background: url("tourbeta-title-icon.png") no-repeat;
+  background-position: -405px 0px;
+}
+.plane-info .content-title,
+.tour-story .content-title{
+  border-bottom: 2px solid #dde2fd;
+}
+.tour-story .story-content {
+  margin-top:20px;
+  line-height: 24px;
+  width: 990px;
+  margin: auto;
+  padding: 30px 0 20px;
+}
+.tour-story .story-content p img{
+  text-align: center;
+  margin: 10px 0;
+}
+.flightInformation{
+  border-top:1px solid #dde2fd;
+  border-right:1px solid #dde2fd;
+  border-left:1px solid #dde2fd;
+  padding: 10px 0px 0px;
+  margin-top: 20px;
+}
+.plane-info .content-title b {
+  background-position: 0px 0px;
+}
+.plane-info .plane-name {
+  padding: 10px 0 10px 30px;
+  margin-left: 20px;
+  border-bottom: 1px dashed #dde2fd;
+}
+.plane-info .plane-name  li {
+  float: left;
+  font-size: 18px;
+  padding:10px;
+  color: #707070;
+}
+.plane-info li.plane-title {
+  padding: 10px 20px;
+  margin-right: 10px;
+  background-color: #189dd8;
+  border-radius: 5px;
+  color: #fff;
+}
+.plane-info li.plane-img {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  padding: 0;
+}
+.plane-info .plane-img b {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  left: 0;
+  top: 5px;
+  background-position: -340px -15px;
+}
+.plane-info .plane-table {
+  padding:0 0 20px 50px;
+  border-bottom: 1px solid #dde2fd;
+}
+.plane-info .plane-table tr:first-child  {
+  color: #656363;
+}
+.plane-info .plane-table tr:last-child {
+  color: #323232;
+}
+.plane-info .plane-table  td {
+  padding:15px 40px 0 0;
+}
+.tour-box-content {
+  padding: 15px 50px 15px 150px;
+}
+.hotel-info .content-title b {
+  background-position: -45px 0px;
+}
+.hotel-info  .tour-box-content {
+  padding: 20px 0 20px 49px;
+
+}
+.hotel-info .hotel-desc li {
+  float: left;
+  margin-right: 20px;
+}
+.hotel-desc .hotel-first {
+  width: 350px;
+}
+.hotel-date{
+  font-size: 18px;
+  border-bottom: 1px dotted #dde2fd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  margin-right: 42px;
+}
+.hotel-desc .hotel-name {
+  font-size: 18px;
+}
+.hotel-desc .hotel-name p {
+  margin-bottom: 15px;
+}
+.hotel-desc .hotel-include {
+  line-height: 24px;
+}
+.hotel-desc .hotel-img {
+  padding: 10px;
+  border: 1px solid #dde2fd;
+  position: relative;
+}
+.hotel-desc .hotel-img img{
+  width: 305px;
+  height: 180px;
+  overflow: hidden;
+}
+.hotel-desc .hotel-img p.tuijian-tips {
+  position: absolute;
+  width: 265px;
+  bottom: 9px;
+  left: 10px;
+  padding: 5px 20px;
+  background-color: #4a433d;
+  background-color: rgba(0, 0, 0, 0.4);
+  color: #fff;
+}
+.hotel-info .hotel-map {
+  height: 400px;
+  overflow: hidden;
+}
+.hotel-info .hotel-map img{
+  max-height: 400px;
+  max-width: 1045px;
+}
+.hotel-infro,.hotel-map{
+  margin-right: 42px;
+  margin-top: 15px;
+}
+.hotel-infro .title,.hotel-map .title{
+  padding: 10px 0;
+  border-bottom: 1px dashed #dde2fd;
+  border-top: 1px solid #dde2fd;
+  margin-top: 10px;
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.cost-info p. {
+  font-size: 18px;
+  margin-bottom: 20px;
+}
+.cost-info ul {
+  margin-left: 20px;
+}
+.cost-info .cost-content {
+  padding: 10px 50px;
+}
+.cost-info .cost-include {
+  border-right: 1px solid #dde2fd;
+  width: 365px;
+  margin-right: -1px;
+}
+.cost-info .cost-include p.title,.cost-info .cost-no-include p.title{
+  font-size: 18px;
+  margin-bottom:5px;
+}
+.cost-info .cost-no-include {
+  border-left: 1px solid #dde2fd;
+  width: 370px;
+}
+.order-info .order-img {
+  margin-bottom: 40px;
+}
+.order-info .order-note,
+.return-info .return-note{
+  line-height: 24px;
+  margin-left: 42px;
+  width: 800px;
+}
+.order-info .order-note li,
+.cost-info li,
+.return-info .return-note li{
+  list-style-type: decimal;
+}
+.route-info .tour-box-content.strokeinfo {
+  color: #5d5a5a;
+  padding-top:0px;
+  padding-left: 36px;
+}
+.route-info .route-step {
+  padding-left: 35px;
+  border-left: 1px dashed #ccc;
+  margin-left: 100px;
+  line-height: 24px;
+}
+.route-info .route-step li {
+  position: relative;
+  margin-bottom: 30px;
+}
+.route-info li.route-step-num {
+  font-size: 18px;
+  margin-top:60px;
+  color: #f97743;
+  font-size: 22px;
+}
+.route-info li b{
+  position: absolute;
+  left: -48px;
+  top: -3px;
+  width: 30px;
+  height: 30px;
+}
+.route-info li.route-step-num b {
+  background-position: 14px 20px;
+  width: 50px;
+  height: 42px;
+  top: -21px;
+  left: -61px;
+  font-size: 24px;
+  line-height: 42px;
+  text-align: center;
+}
+.route-info li.route-step-num span{
+  position: absolute;
+  left: -110px;
+}
+.route-info li.route-plane b {
+  background-position: -418px -16px;
+  background-color: #fff;
+}
+.route-info li.route-tip b.icon {
+  background-position: -1px -120px;
+  left: -79px;
+  width: 55px;
+}
+.route-info li.route-tips b.icon {
+  background-position: -1px -94px;
+  left: -79px;
+  width: 55px;
+}
+.route-info li.route-food b {
+  background-position: -1px -45px;
+  left: -79px;
+  width: 55px;
+}
+.route-info li.route-hotel b {
+  background-position: -1px -70px;
+  left: -79px;
+  width: 55px;
+}
+.route-info li.route-step-num .route-small {
+  font-size: 14px;
+}
+.route-info .route-tuijian p {
+  margin-bottom: 10px;
+}
+.route-info .route-tuijian a{
+  position: relative;
+  display: block;
+  width: 380px;
+  height: 280px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  box-shadow: 0 0 3px #ccc;
+  margin-right: 30px;
+}
+.route-info img,
+.order-content img{
+  padding: 10px;
+  max-width: 100%;
+  margin: 10px 30px 10px 0 ;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 3px #ccc;
+}
+.cost-info .content-title b {
+  background-position: -90px 0px;/*费用说明*/
+}
+.order-info .content-title b {
+  background-position: -135px 0px;/*预定须知*/
+}
+.order-info.tour_syff .content-title b {
+  background-position: -90px -45px;/*使用方法*/
+}
+.qa-info .content-title b {
+  background-position: -315px 0px;/*在线咨询*/
+}
+.return-info .content-title b {
+  background-position: -180px 0px;/*退改规定*/
+}
+.route-info .content-title b {
+  background-position: -225px 0px;/*行程参考*/
+}
+/*end----------详细信息-------------*/
+/*begin--------------相关产品--------------*/
+.tour-related  .content-title b {
+  background-position: -270px 0px;/*相关产品*/
+}
+.tour-related .related-img {
+  margin-left: -18px;
+  margin-top:20px;
+}
+.tour-related .related-img li {
+  float: left;
+  margin-left: 18px;
+  border: 1px solid #ccc;
+}
+.tour-related .related-img li a {
+  height: 250px;
+  display: block;
+  position: relative;
+  color: #333;
+}
+.tour-related .related-img li a:hover{
+  color: #e10979;
+}
+.tour-related .related-img li .related-price {
+  position: absolute;
+  bottom: -6px;
+  padding: 10px 20px;
+  background-color: #ff9c55;
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  right: -5px;
+}
+.tour-related .related-img li .related-price span{
+  font-weight: normal;
+  font-size: 16px;
+  margin-right: 3px;
+}
+.tour-related .related-img li p {
+  padding: 10px 20px;
+  font-size: 16px;
+  width: 325px;
+  background-color: #F0EFEF;
+  height: 48px;
+  overflow: hidden;
+  line-height: 28px;
+  text-overflow: ellipsis;
+}
+
+/*end--------------相关产品--------------------*/
+.backToTop {
+	position: fixed;
+	right: 5px;
+	bottom: 10px;
+}
+.backToTop ul {
+  background-color: #fff;
+  border: 1px solid #e3e3e3;
+}
+.backToTop li {
+  width: 90px;
+  height: 80px;
+  padding: 10px;
+  border-bottom: 1px solid #e3e3e3;
+  text-align: center;
+  font-size: 14px;
+  color: #aaaaaa;
+  cursor: pointer;
+}
+.backToTop .commom-left-khfw a{
+  color: #aaa;
+  display: block;
+}
+.backToTop li:hover,
+.backToTop .commom-left-khfw a:hover{
+  color: #e10979;
+}
+.backToTop li .common-left-logo {
+  margin-top: 5px;
+}
+.backToTop li b {
+  display: block;
+  background: url("/res/images/back-to-top.png") no-repeat;
+}
+
+.backToTop .commom-left-khfw b,
+.backToTop .zxkfli b{
+  width: 35px;
+  height: 30px;
+  margin:  20px 0 13px 25px;
+  background:none;
+}
+.backToTop li .common-left-wxdy {
+  width: 63px;
+  margin: 0 10px;
+}
+.backToTop li b.common-left-top {
+  background-position: -52px -5px;
+  width: 30px;
+  height: 65px;
+  margin-left: 30px;
+  margin-right: auto;
+}
+
+.skuSelectMsg {
+	display:none;
+}
+#select2_person tr {
+	display : none;
+}
+.select2-result-label{
+	text-align:left !important;
+}
+.skuPrice{
+	margin-left:20px;
+}
+/*begin------下拉框-------------*/
+.s_date {
+    border: 1px solid #ccc;
+    margin-bottom: -1px;
+    background : url(../images/order/select_down.png) 280px 10px no-repeat #EDEDED;
+    z-index: 4;
+    padding-right: 25px;
+}
+#buy_select_num .s_date {
+    background-position: 105px 10px;
+}
+.s_date p{
+    padding:2px 0 2px 10px;
+    line-height: 25px;
+    background-color: #ffffff;
+    border-right: 1px solid #cccccc;
+}
+.select_wrap{
+    cursor: pointer;
+    position: relative;
+    float: left;
+}
+.select_wrap ul {
+    position : absolute;
+    left: 0;
+}
+.select_wrap ul, li {
+    list-style: none outside none;
+    padding:0;
+    margin:0;
+    background-size: 100%;
+}
+.select_wrap li {
+    padding-left: 10px;
+    font-size: 12px;
+}
+.select_wrap ul li:hover{
+    color : #e10979;
+    font-weight:bold;
+}
+.select_wrap ul li.hover{
+    color : #e10979;
+    font-weight:bold;
+}
+.hwselect_sku {
+    z-index: 4;
+}
+.select_option {
+    display: none;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    max-height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#remindDiv p {
+    text-align: left;
+}
+
+.hwlayout_box #login_error {
+    margin-top: 20px;
+    margin-left:90px;
+}
+/*end------下拉框-------------*/
+
+/*begin-----------日历---------*/
+.Zebra_DatePicker .dp_daypicker td, .Zebra_DatePicker .dp_daypicker th, 
+
+.Zebra_DatePicker .dp_monthpicker td, .Zebra_DatePicker .dp_yearpicker td {
+    width: 41px;
+}
+.Zebra_DatePicker .dp_daypicker td.dp_hover {
+    background: url(../images/rili-bg01.png) 6px 0 no-repeat;
+    color: #fff;
+}
+.Zebra_DatePicker .dp_daypicker td.dp_selected {
+    background: url(../images/rili-bg02.png) 6px 0 no-repeat;
+    border: none;
+}
+.Zebra_DatePicker .dp_daypicker td.dp_hover.dp_selected {
+    color: #e10979;
+}
+/*end-----------日历---------*/
+
+.clearfix:before, .clearfix:after {
+  content: "";
+  display: table;
+}
+.clearfix:after {
+  content: '.';
+  display: block;
+  height: 0;
+  line-height: 0;
+  clear: both;
+  visibility: hidden;
+}
+.clearfix{*zoom:1}
+
+/*---------------tour-qa lyj 20141022---------------*/
+.tour-qa{
+  position: relative;
+}
+.tour-qa .content-title b{
+  background-position: -180px -45px;
+}
+.tour-qa .empty-qa{
+  text-align: center;
+}
+.tour-qa .empty-qa a,.tour-qa .infos-qa .btn a{
+  background: #f31196;
+  padding: 7px 36px;
+  margin: 0px 8px;
+  color: #fff;
+}
+.tour-qa .infos-qa .btn a{
+  position: absolute;
+  top: 37px;
+  right: 30px;
+  margin:0px;
+}
+.tour-qa .infos-qa dl{
+  margin-bottom: 15px;
+  padding-bottom:10px;
+  border-bottom:1px dotted #ddd;
+  position: relative;
+}
+.tour-qa .infos-qa dt{
+  background: url(tour-qa-q.png) no-repeat left top;
+  padding-left: 30px;
+  padding-top: 4px;
+}
+.tour-qa .infos-qa dt span{
+  color:#848484
+}
+.tour-qa .infos-qa dd{
+  margin: 5px 0;
+  background: url(tour-qa-a.png) no-repeat left top;
+  padding-left: 30px;
+  padding-top: 3px;
+}
+#askquestions{
+  width: 680px;
+  height: 400px;
+  margin: 0 auto;
+}
+#askquestions.hwlayout_box{
+  border: 1px solid #dde2fd;
+}
+#askquestions .hwlayout_box_text{
+  margin: 30px 25px;
+}
+#askquestions textarea{
+  width: 630px;
+  height: 210px;
+  border: 1px solid #ccc;
+}
+#askquestions.hwlayout_box p{
+  margin: 10px 0 5px;
+}
+#askquestions input{
+  border: 1px solid #ccc;
+  width: 260px;
+  height: 33px;
+  line-height: 33px;
+  text-align: center;
+  color: #666;
+}
+#askquestions p.qabtn{
+  margin-top: 20px;
+  text-align: center;
+}
+#askquestions .qabtn .layout_btn_red,
+#askquestions .qabtn .layout_btn_gray{
+  color: #fff;
+  font-size: 14px;
+  width: 110px;
+  display: inline;
+  border-radius: 0px;
+  border: none;
+  font-family: simsun;
+}
+#askquestions .qabtn .layout_btn_gray{
+  color: #333;
+}
+/*.tour-evaluate .content-title .title-big{
+  float: left;
+}*/
+.tour-evaluate{
+  position: relative;
+}
+.tour-evaluate .xgpf{
+  position: absolute;
+  top: 43px;
+  left: 185px;
+}
+.tour-evaluate .content-title b{
+  background-position: -225px -45px;
+}
+.tour-evaluate .star{
+  margin-left: 10px;
+}
+.tour-evaluate .star img{
+  margin: 0px 1px;
+}
+.tour-evaluate .score{
+  font-size: 18px;
+  margin-left: 6px;
+}
+.tour-evaluate .number{
+  margin-left: 6px;
+}
+.tour-evaluate .infos-evaluate{
+  background: url(tour-dp-linebg.png) no-repeat left bottom;
+  padding-left: 20px;
+  margin-left: -20px;
+}
+.tour-evaluate .infos-evaluate dl,
+.tour-evaluate .infos-evaluate-top dl{
+  border-bottom:1px solid #ececec;
+  position: relative;
+  clear: both;
+  padding: 20px 0 30px;
+  min-height: 85px;
+}
+.tour-evaluate .infos-evaluate-top dl{
+  border-top:none;
+}
+.tour-evaluate .infos-evaluate dt,.tour-evaluate .infos-evaluate-top dt{
+  width: 80px;
+  text-align: center;
+  overflow: hidden;
+  position: absolute;
+  left: 0px;
+  margin-top: 4px;
+}
+.tour-evaluate .infos-evaluate-top dt{
+  margin-top: -10px;
+}
+.tour-evaluate .infos-evaluate dt .name,.tour-evaluate .infos-evaluate-top dt .name{
+  color:#72d4e2;
+}
+.tour-evaluate .infos-evaluate dt .time,.tour-evaluate .infos-evaluate-top dt .time{
+  color: #8c8c8c;
+  line-height: 18px;
+}
+.tour-evaluate .infos-evaluate dd,.tour-evaluate .infos-evaluate-top dd{
+  width: 800px;
+  margin-left: 100px;
+}
+.tour-evaluate .infos-evaluate dd .ywxm,
+.tour-evaluate .infos-evaluate dd .ywgc,
+.tour-evaluate .infos-evaluate-top dd .ywxm,
+.tour-evaluate .infos-evaluate-top dd .ywgc{
+  margin-left: 30px;
+}
+.tour-evaluate .infos-evaluate dd .ywxm span,
+.tour-evaluate .infos-evaluate dd .ywgc span,
+.tour-evaluate .infos-evaluate-top dd .ywxm span,
+.tour-evaluate .infos-evaluate-top dd .ywgc span{
+  background: #72d4e2;
+  padding: 2px 5px;
+  color: #fff;
+  margin-left: 3px;
+}
+.tour-evaluate .infos-evaluate .imgs li,
+.tour-evaluate .infos-evaluate-top .imgs li{
+  width: 40px;
+  height: 40px;
+  border: 2px solid #eee;
+  position: relative;
+  /*overflow: hidden;*/
+  float: left;
+  margin: 10px 8px 6px 0;
+}
+.tour-evaluate .infos-evaluate .imgs li:hover,
+.tour-evaluate .infos-evaluate .imgs li.hover,
+.tour-evaluate .infos-evaluate-top .imgs li:hover,
+.tour-evaluate .infos-evaluate-top .imgs li.hover{
+  border: 2px solid #72d4e2;
+}
+.tour-evaluate .infos-evaluate .imgs li img,
+.tour-evaluate .infos-evaluate-top .imgs li img{
+  max-width: 100%;
+  max-height: 100%;
+}
+.tour-evaluate .infos-evaluate .imgsdetail img,
+.tour-evaluate .infos-evaluate-top .imgsdetail img{
+  padding: 10px;
+  width: 600px;
+  border: 1px solid #ececec;
+  background: #f1f2f3;
+}
+.tour-evaluate .infos-evaluate .hot{
+  position: absolute;
+  top:5px;
+  left: -55px;
+  color: #fff;
+  line-height: 15px;
+  letter-spacing: 1px;
+  display: none;
+}
+.tour-evaluate .infos-evaluate .imgs .ponity_shadow,
+.tour-evaluate .infos-evaluate-top .imgs .ponity_shadow {
+  position: absolute;
+  border: 7px solid;
+  border-color: #72d4e2 transparent transparent transparent;
+  border-style: dashed dashed dashed solid;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+  left: 14px;
+  top:42px;
+}
+#zxNum{
+  position: absolute;
+  top:10px;
+  background: #ff9c55;
+  padding:2px 4px;
+  margin-left: 2px;
+  font-size: 12px;
+  line-height: 12px;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: normal;
+}
+#yhdpnum{
+  position: absolute;
+  top:10px;
+  background: #ff9c55;
+  padding:2px 4px;
+  margin-left: 2px;
+  font-size: 12px;
+  line-height: 12px;
+  color: #fff;
+  border-radius: 4px;
+  font-weight: normal;
+}
+/*-----------------------lyj20141124----------------------*/
+.sold-out .price-unit{
+  background-image: url(tourbeta_full.png);
+  background-position: -3px 0px;
+}
+.sold-out .price-unit .price-cur,
+.sold-out .price-unit .price-qi{
+  /*color: #f31196;*/
+}
+.sold-out .price-unit .price-discount{
+  width: 100px;
+  text-align: left;
+  color: #666;
+  background: none;
+  border-left: 1px solid #ccc;
+  height: 54px;
+  line-height: 54px;
+  margin-top: 10px;
+  margin-left: 40px;
+  padding-left: 35px;
+}
+.sold-out .buy-total,
+.sold-out .no_product{
+  margin: 0px;
+}
+.sold-out .relevant{
+  margin-top: 40px;
+}
+.sold-out .relevant a{
+	color:#3c3c3c;
+}
+.sold-out .relevant a:hover{
+  color: #e10979;
+}
+.sold-out .relevant dl{
+  width: 200px;
+  float: left;
+  border:1px solid #eee;
+  overflow: hidden;
+  margin-left: 15px;
+}
+.sold-out .relevant dl:first-child{
+  margin-left: 0px;
+}
+.sold-out .relevant dl img{
+  width: 100%;
+}
+.sold-out .relevant dd{
+  padding: 5px 4px;
+}
+.sold-out .relevant dd em{
+  font-style: normal;
+  font-size: 16px;
+  color: #f31196;
+}
+.sold-out .relevant dd span{
+  margin-left: 8px;
+}
+.zaixiankefu{
+  position: absolute;
+  width: 105px;
+	border: 1px solid #cccccc;
+	background-color: #ffffff;
+	padding: 12px !important;
+	font-size: 13px;
+	line-height: 20px;
+	color: #555;
+	top: 0px;
+	right:120px;
+	display: none;
+	z-index: 99;
+}
+.zaixiankefu p{
+  color: #999
+}
+.zxkfli{
+  text-align: center;
+  position: relative;	
+}
+.zaixiankefu .ponity,
+.zaixiankefu .ponity_shadow{
+  position: absolute;
+  border: 7px solid;
+  border-color: transparent transparent transparent #fff;
+  border-style: dashed  dashed dashed solid;
+  width: 0;
+  height: 0;
+  top: 28px;
+  margin-top: -12px;
+  right: -14px;
+  overflow: hidden;
+}
+.zaixiankefu .ponity{
+  border-left-color: #ccc;
+  top: 28px;
+  right: -15px;
+}
+/*-------------------------------jing + jiu---------------------*/
+.hotel-desc .hotel-img-jj{
+  border: 1px solid #dde2fd;
+  width: 550px;
+  height: 280px;
+  overflow: hidden;
+  position: relative;
+}
+.title-sec-word2 .jd{
+  background: url(tourbate-icon-jd.png) no-repeat left center;
+  border-bottom: 1px dashed #eee;
+  padding:6px 10px 8px 30px;
+}
+.title-sec-word2 .xm{
+  background: url(tourbate-icon-xm.png) no-repeat left center;
+  padding:8px 10px 6px 30px;
+}
+.input_date{
+  border: 1px solid #ccc;
+  padding: 2px 0 2px 10px;
+  line-height: 25px;
+  width:275px;
+}
+.hotel-img-rslides {
+  position: relative;
+  list-style: none;
+  overflow: hidden;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  }
+
+.hotel-img-rslides li {
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+  display: none;
+  width: 100%;
+  left: 0;
+  top: 0;
+  }
+
+.hotel-img-rslides li:first-child {
+  position: relative;
+  display: block;
+  float: left;
+  }
+
+.hotel-img-rslides img {
+  display: block;
+  height: auto;
+  float: left;
+  width: 100%;
+  border: 0;
+  height: 280px;
+  }
+/*----------------------------------添加折上再8折----------------------------*/
+.tour-buy{
+  position: relative;
+}
+.additional{
+  position: absolute;
+  right: -4px;
+  bottom: 2px;
+}
+.buy-total.additional-total{
+  text-align: left;
+  margin-left: 50px;
+}
+/* -------------------------------sku 弹层 ------------------------ */
+.hwlayout_box {
+    width: 830px;
+    background: #fff;
+    border: 1px solid #d2d2d2;
+}
+.hwlayout_box_close {
+  display: block;
+  position: absolute;
+  right: 5px;
+  top: 6px;
+  border:none;
+  padding: 6px;
+  border-radius: 4px;
+}
+a.hwlayout_box_close{
+  background: #fa139b;
+}
+a.hwlayout_box_close:hover{
+  background: #ff63b1;
+}
+.hwlayout_box_text {
+  margin:10px 0px 10px 20px;
+}
+.hwlayout_box_lft{
+  float: left;
+  width: 490px;
+}
+.hwlayout_box_lft .datetime .title{
+  font-size: 18px;
+  height: 23px;
+}
+.hwlayout_box_lft .datetime .title b{
+  width: 20px;
+  height: 23px;
+  display: inline-block;
+  background: url(/res/images/beta/tour/tourbeta-sku-icon.png) left top no-repeat;
+  margin-right:6px;
+  zoom:1;
+}
+.hwlayout_box_lft .annotation{
+  margin-top: -13px;
+  float:right;
+}
+.hwlayout_box_lft .annotation span{
+  margin-left: 16px;
+  font-size: 12px;
+}
+.hwlayout_box_lft .annotation span b{
+  width: 11px;
+  height: 10px;
+  line-height: 12px;
+  background: #fff;
+  border:1px solid #e3e3e3;
+  display: inline-block;
+  margin-right: 5px;
+}
+.hwlayout_box_lft .annotation span.atn-01 b{
+  background: #41c9dc;
+  border-color: #32b4c6;
+}
+.hwlayout_box_lft .annotation span.atn-02 b{
+  background: #e3e3e3;
+  border-color: #d3d3d3;
+}
+.hwlayout_box_lft .annotation span.atn-04 b{
+  background: #ff63b1;
+  border-color: #fa139b;
+}
+.hwlayout_box_rgt{
+  width: 220px;
+  background: url("/res/images/beta/tour/tourbeta_box_rgtbg01.png") no-repeat left top;
+  padding:17px 36px 0px 15px;
+  float: right;
+  margin-right: 30px;
+  font-size: 14px;
+}
+.hwlayout_box_rgt .bg02{
+  background: url("/res/images/beta/tour/tourbeta_box_rgtbg02.jpg") no-repeat left bottom;
+  width: 220px;
+  margin-left: -15px;
+  padding:45px 15px 15px;
+  position: relative;
+}
+.hwlayout_box_rgt p{
+  padding: 2px 0;
+}
+.hwlayout_box_rgt b.tips{
+  color: #f97743;
+}
+.hwlayout_box_text .field-ctn{
+  border-top:1px dashed #d2d2d2;
+  margin-top: 15px;
+}
+.hwlayout_box_text .field-title{
+  font-size: 18px;
+  margin-top: 18px;
+}
+.hwlayout_box_text .field-text{
+  margin-top: 8px;
+}
+.hwlayout_box_text .rsxz .field-text{
+  min-height: 110px;
+}
+.field-text .field-select{
+  margin-top: 10px;
+  height: 30px;
+}
+.field-text .field-select > div {
+  float: left;
+}
+.field-ctn.error{
+  text-align: center;
+  position: absolute;
+  top:18px;
+  padding-top: 10px;
+  width: 220px;
+  margin-top: 0px;
+  color: red;
+}
+.field-ctn.error b{
+  background: url(/res/images/beta/tour/icon-error.png) no-repeat left center;
+  padding: 3px 13px;
+  font-size: 14px;
+  font-size: 14px;
+}
+.field-ctn.tel400{
+  background: url("/res/images/beta/tour/tourbeta_box_wenhao.png") no-repeat 10px 10px;
+  padding-left: 45px;
+  padding-top: 10px;
+}
+.field-ctn.tel400 b{
+  font-weight: normal;
+  font-size: 16px;
+}
+.field-type {
+  line-height: 30px;
+  width: 73px;
+}
+.num-counter {
+  height: 28px;
+  width: 72px;
+  margin-left: 5px;
+}
+.num-counter .reduce,
+.num-counter .add{
+  width: 14px;
+  height: 14px;
+  margin-top: 7px;
+  line-height: 10px;
+  display: block;
+  float: left;
+  cursor: pointer;
+  text-align: center;
+  border: 1px solid #D5D5D5;
+  font-size: 28px;
+  color: #999;
+}
+.num-counter .add{
+  float: right;
+  font-size: 20px;
+  line-height: 14px;
+}
+.num-counter input {
+  line-height: 20px;
+  height: 20px;
+  width: 26px;
+  float: left;
+  margin: 0px 6px;
+  border: 1px solid #d9d9d9;
+  font-size: 16px;
+  text-align: center;
+}
+.num-counter .reduce:hover,
+.num-counter .add:hover{
+  color: #fff;
+  background: #ff63b1;
+  border:1px solid #fa139b;
+}
+.num-counter input {
+line-height: 20px;
+width: 26px;
+border: 1px solid #d9d9d9;
+font-size: 16px;
+height: 26px;
+vertical-align: top;
+outline: none;
+text-align: center;
+}
+.field-range {
+  font-size: 12px;
+}
+.field-price {
+line-height: 30px;
+font-size: 16px;
+color: #fa139b;
+width: 60px;
+text-align: center;
+}
+.field-price em{
+  font-style: normal;
+}
+#myDateTime{
+  background: #ff63b1;
+  margin-top: 10px;
+}
+.year-month{
+  line-height:26px;
+  background: #ff63b1;
+  padding: 10px 18px;
+  font-size:18px;
+  color: #fff;
+  text-align: center;
+}
+.year-month .month-lft,
+.year-month .month-rgt{
+  border-radius: 50px;
+  display: block;
+  width: 30px;
+  height: 30px;  
+  float: left;
+  cursor: pointer;
+}
+.year-month .month-rgt{
+  float: right;
+  cursor: pointer;
+}
+.year-month .month-lft b,
+.year-month .month-rgt b{
+  display: block;
+  margin-left: 8px;
+  margin-top: 6px;
+  width: 11px;
+  height: 19px;
+  background-image: url(/res/images/beta/tour/tourbeta-sku-icon.png);
+  background-repeat:  no-repeat;
+}
+.year-month .month-lft b{
+  background-position: left -25px;
+}
+.year-month .month-rgt b{
+  background-position: right -25px;
+  margin-left: 12px;
+}
+.year-month .month-lft:hover,
+.year-month .month-rgt:hover{
+  background-color: #fc3a9a;
+}
+#myDateTime table{
+  width: 100%;
+  border-collapse: collapse;
+}
+#myDateTime table tr:first-child td{
+  background: #dedede;
+  color: #333;
+  border: 1px solid #c2c2c2;
+}
+#myDateTime td{
+  border:1px solid #d2d2d2;
+  text-align: center;
+  cursor: pointer;
+}
+/*#myDateTime table td.today{
+  color: #fff;
+  background: #41c9dc;
+}*/
+#myDateTime table td.usable{
+  color: #000;
+}
+#myDateTime table td.usable:hover{
+  background: #ff63b1;
+  color: #fff;
+}
+#myDateTime table td.nousable{
+  color: #999;
+  background: #f1f1f1;
+}
+#myDateTime table td.selected{
+  color: #fff;
+  background: #fa149b;
+}
+.sku-sel{
+  border-top: 1px dashed #e3e3e3;
+  margin-top: 18px;
+  padding: 15px 0 0;
+}
+.sku-sel .title{
+  font-size: 18px;
+}
+.sku-sel .text{
+  margin-top:2px;
+}
+.sku-sel .text span{
+  background: #fff;
+  display: inline-block;
+  zoom:1;
+  border: 1px solid #d3d3d3;
+  padding: 2px 15px;
+  margin-right: 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+.sku-sel .text span:hover{
+  border: 1px solid #fa139b;
+  background: #ff63b1;
+  color: #fff;
+}
+.sku-sel .text span.hover{
+  border: 1px solid #e10979;
+  background: #fa139b;
+  color: #fff;
+}
+.sku-sel .text span.disableSku{
+  background: #f3f3f3;
+  color:#999;
+}
+.sku-sel .text span.disableSku:hover{
+  border: 1px dotted #e1e1e1;
+  background: #efefef;
+}
+.field-ctn.gmxg{
+  text-align: center;
+}
+.field-ctn .total{
+  color: #333;
+  margin-top: 20px;
+  font-size: 18px;
+}
+.field-ctn .total b{
+  font-size: 22px;
+}
+.field-ctn .saving{
+  font-size: 14px;
+  color: #666;
+  margin-top: 8px;
+}
+.field-ctn .btns{
+  background: #fa139b;
+  font-size: 18px;
+  width: 205px;
+  height: 60px;
+  line-height: 60px;
+  margin: auto;
+  border-radius: 6px;
+  text-align: center;
+  color: #fff;
+  margin-top:15px;
+  cursor: pointer;
+}
+.field-ctn .btns:hover{
+  background: #ff63b1;
+}
+.product_remind{
+
+  background: none repeat scroll 0 0 #e10979;
+  border: 1px solid #e10979;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  color: #fff;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: pointer;
+  text-align: center;
+  width: 260px;
+  padding: 5px 0;
+  }
+  .hwlayout_box_text_remind{
+  margin:30px 100px 50px 100px;
+  }
+
+
+/* tourdetail.js */
+.disablePerson{
+  display: none;
+}

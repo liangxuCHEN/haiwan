@@ -1,0 +1,85 @@
+
+/*colorbox*/
+#colorbox, #cboxOverlay, #cboxWrapper{position:absolute; top:0; left:0; z-index:9999; overflow:hidden;}
+#cboxOverlay{position:fixed; width:100%; height:100%;}
+#cboxMiddleLeft, #cboxBottomLeft{clear:left;}
+#cboxContent{position:relative; z-index:9999}
+#cboxLoadedContent{overflow:auto;}
+#cboxTitle{margin:0;}
+#cboxLoadingOverlay, #cboxLoadingGraphic{position:absolute; top:0; left:0; width:100%; height:100%;}
+#cboxPrevious, #cboxNext, #cboxClose, #cboxSlideshow{cursor:pointer;}
+.cboxPhoto{float:left; margin:auto; border:0; display:block;}
+.cboxIframe{width:100%; height:100%; display:block; border:0;}
+#cboxOverlay{background:#000;}
+#colorbox{ z-index:10000;outline: none;}
+#cboxTopLeft,#cboxTopRight,#cboxBottomLeft,#cboxBottomRight,#cboxMiddleLeft,#cboxMiddleRight,#cboxTopCenter,#cboxBottomCenter{background:transparent;}
+#cboxContent{overflow:hidden; -moz-border-radius:10px; -webkit-border-radius:10px; border-radius:10px; padding:5px;}
+#cboxContent {filter:progid:DXImageTransform.Microsoft.gradient(enabled='true',startColorstr='#22000000', endColorstr='#22000000');}
+:root #cboxContent {filter:none;background:rgba(0,0,0,0.2);}
+.cboxIframe{background:#fff;}
+#cboxError{padding:50px; border:1px solid #ccc;}
+#cboxLoadedContent{}
+#cboxTitle{position:absolute; bottom:4px; left:0; text-align:center; width:100%; color:#949494;}
+#cboxCurrent{position:absolute; bottom:4px; left:58px; color:#949494;}
+#cboxSlideshow{position:absolute; bottom:4px; right:30px; color:#0092ef;}
+#cboxPrevious{position:absolute; bottom:0; left:0; background:url(controls.png) no-repeat -75px 0; width:25px; height:25px; text-indent:-9999px;}
+#cboxPrevious:hover{background-position:-75px -25px;}
+#cboxNext{position:absolute; bottom:0; left:27px; background:url(controls.png) no-repeat -50px 0; width:25px; height:25px; text-indent:-9999px;}
+#cboxNext:hover{background-position:-50px -25px;}
+#cboxLoadingOverlay{background:url(loading_background.png) no-repeat center center;}
+#cboxLoadingGraphic{background:url(loading.gif) no-repeat center center;}
+#cboxClose{position:absolute; top:10px; right:12px; background:url(controls.png) no-repeat -25px 0; width:25px; height:25px; text-indent:-9999px;border:0}
+#cboxClose:hover{background-position:-25px -25px;}
+.cboxIE #cboxTopLeft,.cboxIE #cboxTopCenter,.cboxIE #cboxTopRight,.cboxIE #cboxBottomLeft,.cboxIE #cboxBottomCenter,.cboxIE #cboxBottomRight,.cboxIE #cboxMiddleLeft,.cboxIE #cboxMiddleRight {background:transparent;}
+.cboxIE6 #cboxTopLeft,.cboxIE6 #cboxTopCenter,.cboxIE6 #cboxTopRight,.cboxIE6 #cboxBottomLeft,.cboxIE6 #cboxBottomCenter,.cboxIE6 #cboxBottomRight,.cboxIE6 #cboxMiddleLeft,.cboxIE6 #cboxMiddleRight { background:transparent;}
+.pop_box{background:#fff; overflow:hidden; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px;}
+
+
+/*弹层 支付alert弹窗*/
+.alert_W_float { z-index:9999; position:fixed; _position:absolute; top:0; left:0; width:100%; height:100%;background:#000000; filter:alpha(opacity=40); background:rgba(0, 0, 0, 0.4);}
+.alert_W_outer { width:400px; position:absolute; left:50%; top:50%; margin-left:-200px; margin-top:-80px; z-index:10000;}
+.alert_W_box{ background:#fff; -moz-border-radius:5px; -webkit-border-radius:5px; border-radius:5px; text-align:center;}
+.alert_W_box .sign-txt{ font-size:16px; line-height:24px; padding-top:10px;}
+.alert_W_title{ background:#f9f9f9; line-height:36px; border-bottom:1px solid #ededed; overflow:hidden; zoom:1;  -moz-border-radius:5px 5px 0px 0px; -webkit-border-radius:5px 5px 0px 0px; border-radius:5px 5px 0px 0px; position:relative; }
+.alert_W_title h1{ font-family: "microsoft yahei"; font-size:16px;float:left; padding-left:15px;}
+.alert_W_close{ position:absolute; top:12px; right:12px;display:inline-block; width:14px; height:14px; background:url(../images/W_close.png) 0 0 no-repeat; cursor:pointer;}
+.alert_W_close:hover{ background-position:0 -25px;}
+.alert_W_field{ padding:20px; color:#333;}
+.alert_W_txt1{ font-size:16px;}
+.alert_W_opr{ text-align:center; padding:10px 20px 25px 20px;}
+
+#colorbox, #cboxOverlay, #cboxWrapper,.pop_box,#cboxContent,#cboxLoadedContent{ overflow:visible!important;}
+
+/*行程单线路图片居中 2014.07.03*/
+.journey-img-fc .j-pic-fcbox{width:450px; height:300px; overflow:hidden;display:table-cell; text-align:center; vertical-align:middle; *display: block; *font-family:simsun;*font-size:290px; background:url(../images/pinshow-bg.png) repeat;}
+.journey-img-fc .j-pic-fcbox img{ vertical-align:middle;}
+
+.cal-title{display: none;}
+.date-scroll span.now{display: block;}
+
+/*日历弹层*/
+.pop-top{ padding-bottom: 20px; font: 16px/22px "microsoft yahei";}
+.pop-date-box { padding:20px;}
+.calendar-box{ width:550px; overflow:hidden;}
+.date-scroll{ text-align:center;font: 20px/24px "microsoft yahei";color: #4da679; border-bottom:1px solid #ebebeb; padding-bottom:8px;}
+.date-scroll .prev,.date-scroll .next{ display:inline-block; width:24px; height:24px; background:url(index-v3-icon.png) no-repeat;}
+.date-scroll .prev{ float:left; background-position:-32px -88px;}
+.date-scroll .next{ float:right; background-position:-32px -58px;}
+.date-scroll .prev:hover{ background-position:-63px -88px;}
+.date-scroll .next:hover{ background-position:-63px -58px;}
+.calendar-table {width:550px;margin:0;border-collapse: collapse;}
+.calendar-table th {width: 78px;font: 14px/34px "microsoft yahei";}
+.calendar-table td {width: 78px;height: 60px; border: 1px solid #fff;}
+.calendar-table td a, .calendar-table td .unavailable {position: relative;display: block;height: 60px;}
+.calendar-table td a:hover {background-color:#4da679;text-decoration:none;}
+.calendar-table td a:hover span,.calendar-table td a:hover b {color:#fff;text-decoration:none;}
+.calendar-table td b {display: block;padding:5px 5px 0 5px;font-weight: normal;font-size: 12px;color: #b5b5b5;text-align: left;zoom: 1;}
+.calendar-table td .price {display: block;padding-left: 5px;font: 12px/18px arial,simsun;color: #4da679;}
+.calendar-table td .status {display: block;padding-left: 5px;height: 18px;color: #666;}
+.calendar-table td .red, .calendar-table td .unavailable .red {display: block;color: #FE7472;}
+#calendar_box{
+	display: none;
+}
+#cboxLoadedContent #calendar_box{
+	display: inherit;
+}
